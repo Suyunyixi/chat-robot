@@ -9,7 +9,6 @@ import java.io.StringWriter;
 /**
  * @author Suyunyixi
  * @date 2023/2/6 21:58
- * @email xukai@co-mall.com
  **/
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StrUtil {

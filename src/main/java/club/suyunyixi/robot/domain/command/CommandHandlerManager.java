@@ -1,4 +1,4 @@
-package club.suyunyixi.robot.domain.handler;
+package club.suyunyixi.robot.domain.command;
 
 import club.suyunyixi.robot.infrastructure.utils.StrUtil;
 import net.mamoe.mirai.event.events.MessageEvent;
