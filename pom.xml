@@ -16,12 +16,19 @@
     <properties>
         <java.version>17</java.version>
         <simbot.version>3.0.0-M6</simbot.version>
-        <mirai.version>3.0.0.0-beta.6</mirai.version>
+        <mirai.version>3.0.0.0-M4</mirai.version>
         <mapstruct.version>1.5.2.Final</mapstruct.version>
         <kaml.version>0.51.0</kaml.version>
+        <hutool.version>5.8.11</hutool.version>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.charleskorn.kaml/kaml -->
+        <!-- hutool -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <!-- simbot支持yaml配置插件 -->
         <dependency>
             <groupId>com.charleskorn.kaml</groupId>
             <artifactId>kaml</artifactId>
@@ -64,11 +71,11 @@
             <artifactId>simbot-component-mirai-core</artifactId>
             <version>${mirai.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

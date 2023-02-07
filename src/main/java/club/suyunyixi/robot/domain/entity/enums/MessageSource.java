@@ -3,20 +3,20 @@ package club.suyunyixi.robot.domain.entity.enums;
 import lombok.NoArgsConstructor;
 
 /**
- * 消息类型
+ * 消息来源
  *
  * @author Suyunyixi
  * @date 2023/2/6 22:05
  **/
 @NoArgsConstructor
-public enum MessageType {
+public enum MessageSource {
     /**
      * 好友私聊
      */
-    AT,
+    FRIEND,
     /**
-     * 额外的聊天内容, 包含自定义的触发关键字, 及指定回答
+     * 群聊天
      */
-    EXTRA,
+    GROUP,
     ;
 }

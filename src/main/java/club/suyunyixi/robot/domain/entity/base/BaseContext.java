@@ -1,4 +1,4 @@
-package club.suyunyixi.robot.domain.context;
+package club.suyunyixi.robot.domain.entity.base;
 
 import lombok.Data;
 
@@ -10,5 +10,12 @@ import lombok.Data;
  **/
 @Data
 public class BaseContext {
+    /**
+     * 消息主体
+     */
     private String message;
+    /**
+     * 发起人
+     */
+    private String questioner;
 }

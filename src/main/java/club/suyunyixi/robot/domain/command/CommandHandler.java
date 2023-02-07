@@ -8,10 +8,9 @@ import net.mamoe.mirai.message.data.MessageChain;
 import java.util.List;
 
 /**
- * 机器人命令处理接口
+ * 机器人命令处理接口, 此处为处理命令的模板
  *
  * @author Suyunyixi
- * @description
  * @date 2023/2/6
  */
 public interface CommandHandler {

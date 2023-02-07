@@ -1,6 +1,9 @@
 package club.suyunyixi.robot.infrastructure.anno;
 
 
+import club.suyunyixi.robot.domain.command.BaseChain;
+import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+
 import java.lang.annotation.*;
 
 /**
@@ -12,4 +15,26 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface ChainService {
+    /**
+     * 属于哪个分支
+     */
+    ChainLine[] lines();
+
+    @interface ChainLine {
+
+        /**
+         * 属于哪个分支
+         */
+        MessageSource branch();
+
+        /**
+         * 该分支下的父级, 不写则代表父级
+         */
+        String parent() default BaseChain.ORIGIN_MAIN_KEY;
+
+        /**
+         * 注册名
+         */
+        String name();
+    }
 }

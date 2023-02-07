@@ -4,10 +4,9 @@ import club.suyunyixi.robot.infrastructure.utils.StrUtil;
 import net.mamoe.mirai.event.events.MessageEvent;
 
 /**
- * 命令处理器管理者
+ * 命令处理器管理者, 此处为执行命令的模板
  *
  * @author Suyunyixi
- * @description
  * @date 2023/2/6
  */
 public interface CommandHandlerManager {
