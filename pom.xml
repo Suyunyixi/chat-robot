@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>club.suyunyixi</groupId>
-    <artifactId>robot</artifactId>
+    <artifactId>chat-robot</artifactId>
     <version>1.0.0</version>
     <name>robot</name>
     <description>robot</description>
