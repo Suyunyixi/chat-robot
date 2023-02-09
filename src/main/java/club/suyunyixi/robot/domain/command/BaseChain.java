@@ -33,7 +33,7 @@ public abstract class BaseChain<P, D, R> {
     /**
      * 链调用方法
      */
-    public abstract R handle(P params, D data);
+    public abstract R handle(P param, D data);
 
     protected BaseChain<P, D, R> nextChain(Object nextKey, MessageSource type) {
         log.info("to next chain: {}, nextKey: {}", type, nextKey);

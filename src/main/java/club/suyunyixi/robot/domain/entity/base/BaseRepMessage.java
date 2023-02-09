@@ -2,8 +2,13 @@ package club.suyunyixi.robot.domain.entity.base;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import love.forte.simbot.Identifies;
+import love.forte.simbot.message.At;
+import love.forte.simbot.message.Messages;
+import love.forte.simbot.message.Text;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Suyunyixi
@@ -15,7 +20,7 @@ public class BaseRepMessage {
     /**
      * 需要回复的人
      */
-    private String at;
+    private List<String> ats;
     /**
      * 内容正文
      */
@@ -30,5 +35,14 @@ public class BaseRepMessage {
     public static class RepImage {
         private String str;
         private String url;
+    }
+
+    public Messages toMessages() {
+        // content
+        Messages messages = Messages.toMessages(Text.of(content));
+        // ats
+        Optional.ofNullable(ats).ifPresent(nums -> nums.forEach(at -> messages.plus(new At(Identifies.ID(at)))));
+        // TODO IMAGES
+        return messages;
     }
 }

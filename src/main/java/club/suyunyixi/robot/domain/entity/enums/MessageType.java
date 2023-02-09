@@ -15,8 +15,16 @@ public enum MessageType {
      */
     AT,
     /**
+     * 群聊天系统设置
+     */
+    GROUP_SYSTEM,
+    /**
      * 额外的聊天内容, 包含自定义的触发关键字, 及指定回答
      */
     EXTRA,
+    /**
+     * 定时任务
+     */
+    TASK,
     ;
 }

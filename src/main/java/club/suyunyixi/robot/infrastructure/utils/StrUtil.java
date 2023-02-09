@@ -5,6 +5,10 @@ import lombok.NoArgsConstructor;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * @author Suyunyixi
@@ -12,6 +16,11 @@ import java.io.StringWriter;
  **/
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StrUtil {
+
+    public static Set<String> split(String str) {
+        return new HashSet<>(Arrays.asList(Optional.ofNullable(str).orElse("").replace(" ", "").split(",")));
+    }
+
     public static String getErrorInfoFromException(Throwable e) {
         try {
             try (
