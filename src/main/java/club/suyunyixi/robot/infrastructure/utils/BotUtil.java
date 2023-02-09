@@ -1,5 +1,6 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
+import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import cn.hutool.core.util.ObjectUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -32,5 +33,9 @@ public class BotUtil {
             }
         }
         return Boolean.FALSE;
+    }
+
+    public static Messages assemble(BaseRespMessage rep) {
+
     }
 }

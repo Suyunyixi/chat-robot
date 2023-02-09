@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
-import club.suyunyixi.robot.domain.entity.base.BaseRepMessage;
+import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import club.suyunyixi.robot.infrastructure.error.BizError;
 import club.suyunyixi.robot.infrastructure.exception.*;
 import lombok.AccessLevel;
@@ -17,8 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ExceptionUtil {
-    public static BaseRepMessage handle(Exception e) {
-        BaseRepMessage rep = new BaseRepMessage();
+    public static BaseRespMessage handle(Exception e) {
+        BaseRespMessage rep = new BaseRespMessage();
         if (e instanceof CanNotParseCommandException) {
         }
         if (e instanceof CanNotSendMessageException) {

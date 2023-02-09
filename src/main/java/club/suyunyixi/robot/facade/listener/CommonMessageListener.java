@@ -1,5 +1,6 @@
 package club.suyunyixi.robot.facade.listener;
 
+import club.suyunyixi.robot.application.GroupMessageApplication;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.enums.MessageSource;
 import club.suyunyixi.robot.infrastructure.utils.ThreadLocalUtil;
@@ -26,7 +27,9 @@ import javax.annotation.Resource;
 @Component
 public class CommonMessageListener {
     @Resource
-    private ThreadLocalUtil<BaseParam> threadLocalUtil;
+    private ThreadLocalUtil<GroupMessageEvent> threadLocalUtil;
+    @Resource
+    private GroupMessageApplication application;
 
     /**
      * 好友消息监听
@@ -45,12 +48,15 @@ public class CommonMessageListener {
      */
     @Listener
     public void listener(GroupMessageEvent event) {
-        BaseParam explain = explain(event);
-        String content = JSON.toJSONString(explain);
-
-        log.info("listened group message group: {}\n{}", explain.getGroupNum(), content);
-        // response
-//        event.replyBlocking(messages);
+        BaseParam param = explain(event);
+        // log
+        log.info("listened group message group: {}\n{}", param.getGroupNum(), JSON.toJSONString(param));
+        // set threadLocal
+        threadLocalUtil.set(event);
+        // chain
+        application.sendMessage(param);
+        // remove
+        threadLocalUtil.remove();
     }
 
     private BaseParam explain(GroupMessageEvent event) {

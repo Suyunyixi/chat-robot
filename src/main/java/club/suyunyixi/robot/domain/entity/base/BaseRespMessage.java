@@ -16,7 +16,7 @@ import java.util.Optional;
  */
 @Data
 @Accessors(chain = true)
-public class BaseRepMessage {
+public class BaseRespMessage {
     /**
      * 需要回复的人
      */
@@ -29,6 +29,14 @@ public class BaseRepMessage {
      * 图片信息
      */
     private List<RepImage> images;
+    /**
+     * 是否需要回复
+     */
+    private boolean reply;
+
+    public static BaseRespMessage none() {
+        return new BaseRespMessage();
+    }
 
     @Data
     @Accessors(chain = true)
