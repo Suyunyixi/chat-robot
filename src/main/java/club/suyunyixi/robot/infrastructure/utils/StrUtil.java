@@ -1,14 +1,13 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
+import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
+import cn.hutool.core.text.CharSequenceUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Suyunyixi
@@ -16,6 +15,14 @@ import java.util.Set;
  **/
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StrUtil {
+
+    public static MessageHandler getStartWith(String message) {
+        return Arrays.stream(MessageHandler.values())
+                .filter(m -> m.getKeywords().stream()
+                        .anyMatch(k -> CharSequenceUtil.startWith(message, k)))
+                .min(Comparator.comparingLong(MessageHandler::getLevel))
+                .orElse(null);
+    }
 
     public static Set<String> split(String str) {
         return new HashSet<>(Arrays.asList(Optional.ofNullable(str).orElse("").replace(" ", "").split(",")));

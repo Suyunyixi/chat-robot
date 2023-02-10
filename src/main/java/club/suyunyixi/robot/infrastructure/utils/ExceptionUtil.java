@@ -17,7 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ExceptionUtil {
-    public static BaseRespMessage handle(Exception e) {
+    @SneakyThrows
+    public static BaseRespMessage throwEx(Exception e) {
         BaseRespMessage rep = new BaseRespMessage();
         if (e instanceof CanNotParseCommandException) {
         }
@@ -39,6 +40,12 @@ public class ExceptionUtil {
     public static void throwIfTrue(boolean b, BizError msg) {
         if (b) {
             throwException(msg);
+        }
+    }
+
+    public static void throwIfTrue(boolean b, Exception msg) {
+        if (b) {
+            throwEx(msg);
         }
     }
 }

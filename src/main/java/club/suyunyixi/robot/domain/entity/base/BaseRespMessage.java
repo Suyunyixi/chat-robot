@@ -1,5 +1,6 @@
 package club.suyunyixi.robot.domain.entity.base;
 
+import club.suyunyixi.robot.domain.entity.enums.ImageType;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import love.forte.simbot.Identifies;
@@ -41,8 +42,8 @@ public class BaseRespMessage {
     @Data
     @Accessors(chain = true)
     public static class RepImage {
-        private String str;
-        private String url;
+        private ImageType type;
+        private String key;
     }
 
     public Messages toMessages() {

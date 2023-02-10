@@ -11,11 +11,10 @@ import static club.suyunyixi.robot.domain.entity.constants.MessageLevelConstant.
 /**
  * @author Suyunyixi
  * @date 2023/2/9 10:19
- * @email xukai@co-mall.com
  */
 @Getter
 @AllArgsConstructor
-public enum MessageHandlerType {
+public enum MessageHandler {
     /**
      * 普通提问, 优先级不高
      */

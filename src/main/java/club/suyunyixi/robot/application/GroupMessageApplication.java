@@ -1,7 +1,6 @@
 package club.suyunyixi.robot.application;
 
 import club.suyunyixi.robot.application.chain.MessageExplainChain;
-import club.suyunyixi.robot.application.chain.PermissionChain;
 import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
@@ -39,7 +38,7 @@ public class GroupMessageApplication {
         GroupMessageEvent event = threadLocalUtil.get();
         if (ObjectUtil.isNotNull(event)) {
             // execute chain to choice biz
-            BaseRespMessage rep = chain.handle(param, new BaseContext());
+            BaseRespMessage rep = chain.handle(param, BaseContext.empty());
             // assemble resp message
             Messages messages = BotUtil.assemble(rep);
             // reply

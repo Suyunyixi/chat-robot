@@ -9,7 +9,6 @@ import java.util.function.Supplier;
 /**
  * @author Suyunyixi
  * @date 2023/2/9 10:14
- * @email xukai@co-mall.com
  */
 @Data
 @Accessors(chain = true)

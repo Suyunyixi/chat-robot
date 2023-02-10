@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
  *
  * @author Suyunyixi
  * @date 2023/2/9 10:34
- * @email xukai@co-mall.com
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MessageLevelConstant {

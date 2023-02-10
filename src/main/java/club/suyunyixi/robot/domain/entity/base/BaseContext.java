@@ -1,6 +1,11 @@
 package club.suyunyixi.robot.domain.entity.base;
 
+import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * 用于传递的上下文对象
@@ -9,13 +14,14 @@ import lombok.Data;
  * @date 2023/2/6 22:11
  **/
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
 public class BaseContext {
-    /**
-     * 消息主体
-     */
-    private String message;
-    /**
-     * 发起人
-     */
-    private String questioner;
+    private MessageHandler handler;
+
+    public static BaseContext empty() {
+        return BaseContext.builder().build();
+    }
 }

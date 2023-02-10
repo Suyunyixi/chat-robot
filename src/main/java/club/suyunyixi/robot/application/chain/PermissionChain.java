@@ -9,8 +9,7 @@ import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import static club.suyunyixi.robot.domain.entity.constants.ChinaConstant.LEVEL_1;
-import static club.suyunyixi.robot.domain.entity.constants.ChinaConstant.LEVEL_2;
+import static club.suyunyixi.robot.domain.entity.constants.ChinaConstant.*;
 
 /**
  * 权限判断链
@@ -21,13 +20,13 @@ import static club.suyunyixi.robot.domain.entity.constants.ChinaConstant.LEVEL_2
 @Slf4j
 @Service
 @ChainService(lines = {
-        @ChainService.ChainLine(branch = MessageSource.GROUP, name = LEVEL_1, parent = BaseChain.MAIN_CHAIN_KEY)
+        @ChainService.ChainLine(branch = MessageSource.GROUP, name = LEVEL_2, parent = LEVEL_1)
 })
 public class PermissionChain
         extends BaseChain<BaseParam, BaseContext, BaseRespMessage> {
     @Override
     public BaseRespMessage handle(BaseParam param, BaseContext data) {
         // TODO 权限处理, 目前不考虑
-        return nextChain(LEVEL_2, param.getSource()).handle(param, data);
+        return nextChain(END, param.getSource()).handle(param, data);
     }
 }
