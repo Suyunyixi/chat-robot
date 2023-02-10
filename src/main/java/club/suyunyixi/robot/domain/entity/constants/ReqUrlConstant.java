@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ReqUrlConstant {
-    public static final String PIXIV = "/pixiv/search/{keyword}/{order}/{mode}?safe={}";
+    public static final String PIXIV = "/pixiv/search/{}/{}/{}?safe={}";
     public static final String DEFAULT_ORDER = "popular";
     public static final String DEFAULT_MODE = "2";
     public static final String DEFAULT_SAFE = "";
