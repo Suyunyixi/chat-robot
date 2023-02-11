@@ -1,9 +1,10 @@
 package club.suyunyixi.robot.application;
 
-import club.suyunyixi.robot.application.chain.MessageExplainChain;
+import club.suyunyixi.robot.application.chain.MessageFilterChain;
 import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
+import club.suyunyixi.robot.domain.entity.enums.MessageSource;
 import club.suyunyixi.robot.infrastructure.utils.BotUtil;
 import club.suyunyixi.robot.infrastructure.utils.ThreadLocalUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -25,7 +26,7 @@ import javax.annotation.Resource;
 public class GroupMessageApplication {
 
     @Resource
-    private MessageExplainChain chain;
+    private MessageFilterChain chain;
     @Resource
     private ThreadLocalUtil<GroupMessageEvent> threadLocalUtil;
 
@@ -38,7 +39,7 @@ public class GroupMessageApplication {
         GroupMessageEvent event = threadLocalUtil.get();
         if (ObjectUtil.isNotNull(event)) {
             // execute chain to choice biz
-            BaseRespMessage rep = chain.handle(param, BaseContext.empty());
+            BaseRespMessage rep = chain.findMain(MessageSource.GROUP).handle(param, BaseContext.empty());
             // assemble resp message
             Messages messages = BotUtil.assemble(rep);
             // reply

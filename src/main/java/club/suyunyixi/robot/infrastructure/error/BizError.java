@@ -11,8 +11,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum BizError {
 
-    CHAIN_IS_VULNERABLE(10161003, "chain is vulnerable, not found nextChain"),
-    SEARCH_ES_ERROR(10161004, "to search es had a error"),
+    CHAIN_IS_VULNERABLE(1000001, "chain is vulnerable, not found nextChain"),
+    HANDLER_NOT_FOUND(1000002, "handler is vulnerable, handler not found"),
     ;
 
     private final int code;

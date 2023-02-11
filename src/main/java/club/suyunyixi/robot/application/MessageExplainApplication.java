@@ -23,7 +23,7 @@ public class MessageExplainApplication {
         // 字符开头匹配模式
         MessageHandler handler = StrUtil.getStartWith(message);
         // 无法解释
-        ExceptionUtil.throwIfTrue(ObjectUtil.isNotNull(handler), new CanNotExplainException());
+        ExceptionUtil.throwIfTrue(ObjectUtil.isNull(handler), new CanNotExplainException());
         return handler;
     }
 }

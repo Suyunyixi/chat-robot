@@ -15,11 +15,21 @@ import java.util.*;
  **/
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StrUtil {
+    public static final String BLANK = "";
+
+    public static String reqContent(String str, MessageHandler handler) {
+        for (String keyword : handler.getKeywords()) {
+            if (CharSequenceUtil.startWith(str, keyword)) {
+                return CharSequenceUtil.replaceFirst(str, keyword, BLANK).trim();
+            }
+        }
+        return BLANK;
+    }
 
     public static MessageHandler getStartWith(String message) {
         return Arrays.stream(MessageHandler.values())
                 .filter(m -> m.getKeywords().stream()
-                        .anyMatch(k -> CharSequenceUtil.startWith(message, k)))
+                        .anyMatch(k -> CharSequenceUtil.startWith(message.toLowerCase(), k.toLowerCase())))
                 .min(Comparator.comparingLong(MessageHandler::getLevel))
                 .orElse(null);
     }

@@ -56,7 +56,7 @@ public class BotUtil {
         Optional.ofNullable(rep.getAts()).ifPresent(list -> list.forEach(at -> messageList.add(new At(Identifies.ID(at)))));
         // content
         messageList.add(Text.of(rep.getContent()));
-        // todo 添加images, 简版后期优化
+        // todo 添加images, 后期优化
         Optional.ofNullable(rep.getImages()).ifPresent(list -> list.forEach(image -> messageList.add(image(image.getKey()))));
         return Messages.listToMessages(messageList);
     }

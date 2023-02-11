@@ -22,6 +22,8 @@ public enum MessageHandler {
     MYSTERIOUS_CODE(StrUtil.split("神秘代码,代码"), MYSTERIOUS_CODE_LEVEL),
     PICTURE_2(StrUtil.split("二刺螈图片,二刺螈,二次元图片"), PICTURE_2_LEVEL),
     PICTURE_3(StrUtil.split("三次元,三次元图片"), PICTURE_3_LEVEL),
+    PIXIV(StrUtil.split("p,pixiv"), PICTURE_3_LEVEL),
+    PIXIV_R18(StrUtil.split("p18,pixiv18,涩图,高清涩图"), PICTURE_3_LEVEL),
     ;
 
     /**

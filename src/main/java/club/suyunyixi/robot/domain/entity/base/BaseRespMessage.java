@@ -1,21 +1,23 @@
 package club.suyunyixi.robot.domain.entity.base;
 
-import club.suyunyixi.robot.domain.entity.enums.ImageType;
+import club.suyunyixi.robot.domain.entity.dto.ResqImage;
+import cn.hutool.core.text.CharSequenceUtil;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import love.forte.simbot.Identifies;
-import love.forte.simbot.message.At;
-import love.forte.simbot.message.Messages;
-import love.forte.simbot.message.Text;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author Suyunyixi
  * @date 2023/2/7 10:46
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Accessors(chain = true)
 public class BaseRespMessage {
     /**
@@ -29,7 +31,7 @@ public class BaseRespMessage {
     /**
      * 图片信息
      */
-    private List<RepImage> images;
+    private List<ResqImage> images;
     /**
      * 是否需要回复
      */
@@ -39,19 +41,26 @@ public class BaseRespMessage {
         return new BaseRespMessage();
     }
 
-    @Data
-    @Accessors(chain = true)
-    public static class RepImage {
-        private ImageType type;
-        private String key;
+
+    /**
+     * 单一命令回复
+     * Created by Suyunyixi on 2023/2/11 20:13
+     */
+    public static BaseRespMessage reply(BaseContext context, String respContent) {
+        if (CharSequenceUtil.isBlank(context.getErrMsg())) {
+            return reply(respContent)
+                    .setAts(context.getRespAts())
+                    .setImages(context.getRespImages());
+        } else {
+            return reply(context.getErrMsg());
+        }
     }
 
-    public Messages toMessages() {
-        // content
-        Messages messages = Messages.toMessages(Text.of(content));
-        // ats
-        Optional.ofNullable(ats).ifPresent(nums -> nums.forEach(at -> messages.plus(new At(Identifies.ID(at)))));
-        // TODO IMAGES
-        return messages;
+    public static BaseRespMessage reply(String respContent) {
+        return BaseRespMessage
+                .builder()
+                .reply(Boolean.TRUE)
+                .content(respContent)
+                .build();
     }
 }

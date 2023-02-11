@@ -3,6 +3,7 @@ package club.suyunyixi.robot.facade.listener;
 import club.suyunyixi.robot.application.GroupMessageApplication;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.infrastructure.anno.ExceptionHandler;
 import club.suyunyixi.robot.infrastructure.utils.ThreadLocalUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.alibaba.fastjson2.JSON;
@@ -37,6 +38,7 @@ public class CommonMessageListener {
      * @param event {@link FriendMessageEvent}
      */
     @Listener
+    @ExceptionHandler
     public void listener(FriendMessageEvent event) {
         event.replyBlocking("Hello World!\nWelcome to Chat-Robot, be enjoyed!");
     }
@@ -47,6 +49,7 @@ public class CommonMessageListener {
      * @param event {@link GroupMessageEvent}
      */
     @Listener
+    @ExceptionHandler
     public void listener(GroupMessageEvent event) {
         BaseParam param = explain(event);
         // log

@@ -1,11 +1,10 @@
 package club.suyunyixi.robot.domain.command;
 
+import club.suyunyixi.robot.domain.entity.base.BaseContext;
+import club.suyunyixi.robot.domain.entity.base.BaseParam;
+import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import club.suyunyixi.robot.infrastructure.exception.CanNotParseCommandException;
 import club.suyunyixi.robot.infrastructure.exception.InsufficientPermissionsException;
-import net.mamoe.mirai.event.events.MessageEvent;
-import net.mamoe.mirai.message.data.MessageChain;
-
-import java.util.List;
 
 /**
  * 机器人命令处理接口, 此处为处理命令的模板
@@ -15,12 +14,7 @@ import java.util.List;
  */
 public interface CommandHandler {
     /**
-     * 解析命令
-     *
-     * @param event 命令事件
-     * @return 解析完成后返回的消息
-     * @throws {@link CanNotParseCommandException} 无法解析时请抛出此异常
-     * @throws {@link InsufficientPermissionsException} 没有足够权限时请抛出此异常
+     * 解析消息, 并执行独立业务处理
      */
-    List<MessageChain> parseCommand(MessageEvent event) throws CanNotParseCommandException, InsufficientPermissionsException;
+    BaseRespMessage explain(BaseParam param, BaseContext data) throws CanNotParseCommandException, InsufficientPermissionsException;
 }

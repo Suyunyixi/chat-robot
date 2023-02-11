@@ -1,5 +1,7 @@
 package club.suyunyixi.robot.domain.command;
 
+import club.suyunyixi.robot.domain.entity.base.BaseContext;
+import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import club.suyunyixi.robot.infrastructure.utils.StrUtil;
 import net.mamoe.mirai.event.events.MessageEvent;
 
@@ -15,21 +17,12 @@ public interface CommandHandlerManager {
      *
      * @param event
      */
-    void success(MessageEvent event);
+    void success(BaseRespMessage rep);
 
     /**
      * 当命名事件执行失败时需要做的事
      *
      * @param event
      */
-    void fail(MessageEvent event, String errorMsg);
-
-    /**
-     * 当命名事件执行失败时需要做的事
-     *
-     * @param event
-     */
-    default void fail(MessageEvent event, Throwable e) {
-        fail(event, StrUtil.getErrorInfoFromException(e));
-    }
+    BaseRespMessage fail(BaseContext context);
 }

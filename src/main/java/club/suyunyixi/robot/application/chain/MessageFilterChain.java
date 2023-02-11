@@ -19,7 +19,6 @@ import static club.suyunyixi.robot.domain.entity.constants.ChinaConstant.*;
  *
  * @author Suyunyixi
  * @date 2023/2/10 17:58
- * @email xukai@co-mall.com
  */
 @Slf4j
 @Service
@@ -30,7 +29,7 @@ public class MessageFilterChain
         extends BaseChain<BaseParam, BaseContext, BaseRespMessage> {
     @Override
     public BaseRespMessage handle(BaseParam param, BaseContext data) {
-        // todo 后期切换成模式
+        // todo 后期切换成配置模式
         // 不@bot不处理
         ExceptionUtil.throwIfTrue(CharSequenceUtil.isBlank(param.getAt()), new NeedNotHandleException());
         return nextChain(LEVEL_1, param.getSource()).handle(param, data);

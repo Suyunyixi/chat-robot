@@ -1,5 +1,7 @@
 package club.suyunyixi.robot.infrastructure.anno;
 
+import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
+
 import java.lang.annotation.*;
 
 /**
@@ -12,4 +14,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface MessageHandlerStrategy {
+    MessageHandler handler();
 }

@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -22,7 +23,7 @@ import java.util.concurrent.ConcurrentMap;
  * @date 2022/9/23 18:37
  **/
 @Slf4j
-@Configuration
+@Component
 public class ChainRegister {
     @Resource
     private ApplicationContext applicationContext;
@@ -37,6 +38,7 @@ public class ChainRegister {
         }
         // 归类, 注册
         register(categorize(beans));
+        MAIN.forEach((k, v) -> log.info(v.toString(k)));
     }
 
     /**

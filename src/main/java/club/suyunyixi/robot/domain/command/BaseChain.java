@@ -1,13 +1,16 @@
 package club.suyunyixi.robot.domain.command;
 
 import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import club.suyunyixi.robot.infrastructure.error.BizError;
 import club.suyunyixi.robot.infrastructure.register.ChainRegister;
 import club.suyunyixi.robot.infrastructure.utils.ExceptionUtil;
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -57,7 +60,7 @@ public abstract class BaseChain<P, D, R> {
     }
 
     @SuppressWarnings("unchecked")
-    protected BaseChain<P, D, R> findMain(MessageSource type) {
+    public BaseChain<P, D, R> findMain(MessageSource type) {
         BaseChain<?, ?, ?> chain = ChainRegister.MAIN.get(type);
         if (ObjectUtil.isEmpty(chain)) {
             throw new IllegalArgumentException("find illegal");
@@ -67,5 +70,28 @@ public abstract class BaseChain<P, D, R> {
 
     protected R start(P p, D d, MessageSource type) {
         return findMain(type).handle(p, d);
+    }
+
+    public String toString(MessageSource type) {
+        return "this branch is " + type + "===" + log(this, type);
+    }
+
+    @SuppressWarnings("uncheck")
+    public String log(BaseChain chain, MessageSource type) {
+        if (ObjectUtil.isNull(chain)) {
+            return "error chain";
+        }
+        StringBuilder sb = new StringBuilder();
+        ChainService anno = chain.getClass().getAnnotation(ChainService.class);
+        Arrays.stream(anno.lines()).filter(line -> type.equals(line.branch())).findFirst().ifPresent(line -> sb.append(CharSequenceUtil.format("chain[name: {}, key: {}] ", chain.getClass().getSimpleName(), line.name())));
+        if (CollUtil.isNotEmpty(chain.nextChainMap)) {
+            Map<Object, BaseChain<P, D, R>> v1 = (Map<Object, BaseChain<P, D, R>>) chain.nextChainMap.get(type);
+            if (CollUtil.isNotEmpty(v1)) {
+                for (Map.Entry<Object, BaseChain<P, D, R>> entry : v1.entrySet()) {
+                    sb.append(" ——> ").append(log(entry.getValue(), type));
+                }
+            }
+        }
+        return sb.toString();
     }
 }
