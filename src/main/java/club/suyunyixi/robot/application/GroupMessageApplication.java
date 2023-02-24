@@ -8,6 +8,7 @@ import club.suyunyixi.robot.domain.entity.enums.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ExceptionHandler;
 import club.suyunyixi.robot.infrastructure.utils.BotUtil;
 import club.suyunyixi.robot.infrastructure.utils.ThreadLocalUtil;
+import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
 import lombok.extern.slf4j.Slf4j;
 import love.forte.simbot.event.GroupMessageEvent;
@@ -43,9 +44,9 @@ public class GroupMessageApplication {
             // execute chain to choice biz
             BaseRespMessage rep = chain.findMain(MessageSource.GROUP).handle(param, BaseContext.empty());
             // assemble resp message
-            Messages messages = BotUtil.assemble(rep);
+            Pair<Boolean, Messages> pair = BotUtil.assemble(rep);
             // reply
-            event.replyAsync(messages);
+            event.replyBlocking(pair.getValue());
         } else {
             log.error("event null, why are you choice do this?");
         }

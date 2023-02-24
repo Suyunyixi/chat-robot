@@ -1,21 +1,20 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
+import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import love.forte.simbot.Identifies;
 import love.forte.simbot.component.mirai.message.MiraiSendOnlyImage;
-import love.forte.simbot.component.mirai.message.SimbotOriginalMiraiMessage;
 import love.forte.simbot.event.GroupMessageEvent;
 import love.forte.simbot.message.At;
 import love.forte.simbot.message.Message;
 import love.forte.simbot.message.Messages;
 import love.forte.simbot.message.Text;
 import love.forte.simbot.resources.Resource;
-import net.mamoe.mirai.message.data.MarketFace;
-import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -53,7 +52,7 @@ public class BotUtil {
      * @param rep {@link BaseRespMessage}
      * @return {@link Messages}
      */
-    public static Messages assemble(BaseRespMessage rep) {
+    public static Pair<Boolean, Messages> assemble(BaseRespMessage rep) {
         List<Message.Element<?>> messageList = ListUtil.toList();
         // 添加at
         Optional.ofNullable(rep.getAts()).ifPresent(list -> list.forEach(at -> messageList.add(new At(Identifies.ID(at)))));
@@ -63,7 +62,7 @@ public class BotUtil {
         Optional.ofNullable(rep.getImages()).ifPresent(list -> list.forEach(image -> messageList.add(image(image.getKey()))));
         //添加商店表情
         Optional.ofNullable(rep.getMarketFaces()).ifPresent(list -> list.forEach((k, v) -> messageList.add(v)));
-        return Messages.listToMessages(messageList);
+        return new Pair<>(CollUtil.isEmpty(rep.getAts()), Messages.listToMessages(messageList));
     }
 
     public static MiraiSendOnlyImage image(String imagePath) {

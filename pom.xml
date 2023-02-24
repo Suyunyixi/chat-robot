@@ -20,21 +20,14 @@
         <mapstruct.version>1.5.2.Final</mapstruct.version>
         <kaml.version>0.51.0</kaml.version>
         <hutool.version>5.8.11</hutool.version>
-        <fastjson2.version>2.0.24</fastjson2.version>
     </properties>
     <dependencies>
-        <!-- fastjson2 -->
         <dependency>
-            <groupId>com.alibaba.fastjson2</groupId>
-            <artifactId>fastjson2</artifactId>
-            <version>${fastjson2.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>3.0.2</version>
         </dependency>
         <!-- aop -->
-        <dependency>
-            <groupId>aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>1.5.4</version>
-        </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>

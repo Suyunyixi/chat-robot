@@ -68,8 +68,6 @@ public class CommonMessageListener {
         threadLocalUtil.set(event);
         // chain
         application.sendMessage(param);
-        // remove
-        threadLocalUtil.remove();
     }
 
     private BaseParam explain(GroupMessageEvent event) {
