@@ -45,8 +45,8 @@ public class GroupMessageApplication {
             BaseRespMessage rep = chain.findMain(MessageSource.GROUP).handle(param, BaseContext.empty());
             // assemble resp message
             Pair<Boolean, Messages> pair = BotUtil.assemble(rep);
-            // reply
-            event.replyBlocking(pair.getValue());
+            // send
+            event.getGroup().sendAsync(pair.getValue());
         } else {
             log.error("event null, why are you choice do this?");
         }
