@@ -38,6 +38,10 @@ public class BaseContext {
      */
     private String errMsg;
 
+    public boolean isExtra() {
+        return MessageHandler.isExtra(handler);
+    }
+
     public static BaseContext empty() {
         return BaseContext.builder().build();
     }

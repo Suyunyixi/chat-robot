@@ -7,12 +7,15 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import love.forte.simbot.Identifies;
 import love.forte.simbot.component.mirai.message.MiraiSendOnlyImage;
+import love.forte.simbot.component.mirai.message.SimbotOriginalMiraiMessage;
 import love.forte.simbot.event.GroupMessageEvent;
 import love.forte.simbot.message.At;
 import love.forte.simbot.message.Message;
 import love.forte.simbot.message.Messages;
 import love.forte.simbot.message.Text;
 import love.forte.simbot.resources.Resource;
+import net.mamoe.mirai.message.data.MarketFace;
+import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,7 +39,7 @@ public class BotUtil {
         Messages messages = event.getMessageContent().getMessages();
         if (ObjectUtil.isNotNull(messages)) {
             for (Message.Element<?> element : messages.toList()) {
-                if (element instanceof At && event.getBot().isMe(((At) element).getTarget())) {
+                if (element instanceof At at && event.getBot().isMe(((At) element).getTarget())) {
                     return Boolean.TRUE;
                 }
             }
@@ -58,6 +61,8 @@ public class BotUtil {
         messageList.add(Text.of(rep.getContent()));
         // todo 添加images, 后期优化
         Optional.ofNullable(rep.getImages()).ifPresent(list -> list.forEach(image -> messageList.add(image(image.getKey()))));
+        //添加商店表情
+        Optional.ofNullable(rep.getMarketFaces()).ifPresent(list -> list.forEach((k, v) -> messageList.add(v)));
         return Messages.listToMessages(messageList);
     }
 

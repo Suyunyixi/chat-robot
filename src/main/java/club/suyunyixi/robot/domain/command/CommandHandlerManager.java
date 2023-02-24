@@ -22,7 +22,7 @@ public interface CommandHandlerManager {
     /**
      * 当命名事件执行失败时需要做的事
      *
-     * @param event
+     * @param context
      */
     BaseRespMessage fail(BaseContext context);
 }

@@ -8,7 +8,6 @@ import club.suyunyixi.robot.domain.entity.enums.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import club.suyunyixi.robot.infrastructure.exception.NeedNotHandleException;
 import club.suyunyixi.robot.infrastructure.utils.ExceptionUtil;
-import cn.hutool.core.text.CharSequenceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -23,15 +22,16 @@ import static club.suyunyixi.robot.domain.entity.constants.ChinaConstant.*;
 @Slf4j
 @Service
 @ChainService(lines = {
-        @ChainService.ChainLine(branch = MessageSource.GROUP, name = BaseChain.MAIN_CHAIN_KEY)
+        @ChainService.ChainLine(branch = MessageSource.GROUP, name = LEVEL_1, parent = BaseChain.MAIN_CHAIN_KEY)
 })
 public class MessageFilterChain
         extends BaseChain<BaseParam, BaseContext, BaseRespMessage> {
     @Override
     public BaseRespMessage handle(BaseParam param, BaseContext data) {
-        // todo 后期切换成配置模式
-        // 不@bot不处理
-        ExceptionUtil.throwIfTrue(CharSequenceUtil.isBlank(param.getAt()), new NeedNotHandleException());
-        return nextChain(LEVEL_1, param.getSource()).handle(param, data);
+        if (!data.isExtra()) {
+            // 不@bot不处理 todo 后期切换成配置模式
+            ExceptionUtil.throwIfTrue(!param.isAtMe(), new NeedNotHandleException());
+        }
+        return nextChain(LEVEL_2, param.getSource()).handle(param, data);
     }
 }

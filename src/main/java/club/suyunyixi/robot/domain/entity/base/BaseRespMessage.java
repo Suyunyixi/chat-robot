@@ -7,8 +7,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import love.forte.simbot.message.Message;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Suyunyixi
@@ -33,6 +35,10 @@ public class BaseRespMessage {
      */
     private List<ResqImage> images;
     /**
+     * 表情信息
+     */
+    private Map<String, Message.Element<?>> marketFaces;
+    /**
      * 是否需要回复
      */
     private boolean reply;
@@ -40,7 +46,6 @@ public class BaseRespMessage {
     public static BaseRespMessage none() {
         return new BaseRespMessage();
     }
-
 
     /**
      * 单一命令回复
@@ -50,6 +55,33 @@ public class BaseRespMessage {
         if (CharSequenceUtil.isBlank(context.getErrMsg())) {
             return reply(respContent)
                     .setAts(context.getRespAts())
+                    .setImages(context.getRespImages());
+        } else {
+            return reply(context.getErrMsg());
+        }
+    }
+
+    /**
+     * 单一命令回复
+     * Created by Suyunyixi on 2023/2/11 20:13
+     */
+    public static BaseRespMessage replyNoAts(BaseContext context, String respContent) {
+        if (CharSequenceUtil.isBlank(context.getErrMsg())) {
+            return reply(respContent)
+                    .setImages(context.getRespImages());
+        } else {
+            return reply(context.getErrMsg());
+        }
+    }
+
+    /**
+     * 单一命令回复
+     * Created by Suyunyixi on 2023/2/11 20:13
+     */
+    public static BaseRespMessage replyMarketFaceOnly(BaseContext context, Map<String, Message.Element<?>> marketFaces) {
+        if (CharSequenceUtil.isBlank(context.getErrMsg())) {
+            return reply("")
+                    .setMarketFaces(marketFaces)
                     .setImages(context.getRespImages());
         } else {
             return reply(context.getErrMsg());

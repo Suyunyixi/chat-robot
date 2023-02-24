@@ -1,8 +1,7 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
-import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import club.suyunyixi.robot.infrastructure.error.BizError;
-import club.suyunyixi.robot.infrastructure.exception.*;
+import club.suyunyixi.robot.infrastructure.exception.BizException;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -18,17 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ExceptionUtil {
     @SneakyThrows
-    public static BaseRespMessage throwEx(Exception e) {
-        BaseRespMessage rep = new BaseRespMessage();
-        if (e instanceof CanNotParseCommandException) {
-        }
-        if (e instanceof CanNotSendMessageException) {
-        }
-        if (e instanceof FileUploadException) {
-        }
-        if (e instanceof InsufficientPermissionsException) {
-        }
-        return rep;
+    public static void throwEx(Exception e) {
+        throw e;
     }
 
     @SneakyThrows

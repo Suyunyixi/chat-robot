@@ -5,6 +5,7 @@ import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.infrastructure.anno.ExceptionHandler;
 import club.suyunyixi.robot.infrastructure.utils.BotUtil;
 import club.suyunyixi.robot.infrastructure.utils.ThreadLocalUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -35,6 +36,7 @@ public class GroupMessageApplication {
      *
      * @param param {@link BaseParam}
      */
+    @ExceptionHandler
     public void sendMessage(BaseParam param) {
         GroupMessageEvent event = threadLocalUtil.get();
         if (ObjectUtil.isNotNull(event)) {

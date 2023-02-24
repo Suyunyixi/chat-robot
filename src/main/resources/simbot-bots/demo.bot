@@ -12,8 +12,8 @@
     "heartbeatTimeoutMillis": 5000,
     "heartbeatStrategy": "STAT_HB",
     "reconnectionRetryTimes": 2147483647,
-    "autoReconnectOnForceOffline": false,
-    "protocol": "ANDROID_PHONE",
+    "autoReconnectOnForceOffline": true,
+    "protocol": "ANDROID_WATCH",
     "highwayUploadCoroutineCount": 16,
     "deviceInfo": {
       "type": "auto"

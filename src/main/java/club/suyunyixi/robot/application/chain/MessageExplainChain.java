@@ -23,7 +23,7 @@ import static club.suyunyixi.robot.domain.entity.constants.ChinaConstant.*;
 @Slf4j
 @Service
 @ChainService(lines = {
-        @ChainService.ChainLine(branch = MessageSource.GROUP, name = LEVEL_1, parent = BaseChain.MAIN_CHAIN_KEY)
+        @ChainService.ChainLine(branch = MessageSource.GROUP, name = BaseChain.MAIN_CHAIN_KEY)
 })
 public class MessageExplainChain
         extends BaseChain<BaseParam, BaseContext, BaseRespMessage> {
@@ -34,6 +34,6 @@ public class MessageExplainChain
     public BaseRespMessage handle(BaseParam param, BaseContext data) {
         // 添加处理器
         data.setHandler(explainApplication.explain(param));
-        return nextChain(LEVEL_2, param.getSource()).handle(param, data);
+        return nextChain(LEVEL_1, param.getSource()).handle(param, data);
     }
 }

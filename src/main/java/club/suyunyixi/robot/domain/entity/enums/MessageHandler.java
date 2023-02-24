@@ -4,6 +4,7 @@ import club.suyunyixi.robot.infrastructure.utils.StrUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import static club.suyunyixi.robot.domain.entity.constants.MessageLevelConstant.*;
@@ -24,6 +25,8 @@ public enum MessageHandler {
     PICTURE_3(StrUtil.split("三次元,三次元图片"), PICTURE_3_LEVEL),
     PIXIV(StrUtil.split("p,pixiv"), PICTURE_3_LEVEL),
     PIXIV_R18(StrUtil.split("p18,pixiv18,涩图,高清涩图"), PICTURE_3_LEVEL),
+    EXTRA_AGAIN(StrUtil.split("又,6,233"), EXTRA_LEVEL),
+    EXTRA_MARKET_FACE(StrUtil.split("209590"), EXTRA_LEVEL),
     ;
 
     /**
@@ -34,4 +37,15 @@ public enum MessageHandler {
      * 权重
      */
     private final int level;
+
+    private static final Set<MessageHandler> EXTRA = new HashSet<>();
+
+    static {
+        EXTRA.add(EXTRA_AGAIN);
+        EXTRA.add(EXTRA_MARKET_FACE);
+    }
+
+    public static boolean isExtra(MessageHandler handler) {
+        return EXTRA.contains(handler);
+    }
 }

@@ -28,8 +28,7 @@ public class RobotExceptionAspect {
             return pjp.proceed();
         } catch (Exception e) {
             log.error("处理失败了: {}", e.getMessage());
-            throw e;
-        } finally {
+            return null;
         }
     }
 }
