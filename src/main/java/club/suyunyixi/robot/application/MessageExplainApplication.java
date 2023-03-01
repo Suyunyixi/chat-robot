@@ -30,6 +30,9 @@ public class MessageExplainApplication {
         MessageHandler handler = StrUtil.getStartWith(message);
         // 额外处理表情包模式
         handler = explainForMarketFace(handler, param);
+        if (ObjectUtil.isNull(handler)) {
+            handler = MessageHandler.CHAT_GPT_QUEST;
+        }
         // 无法解释
         ExceptionUtil.throwIfTrue(ObjectUtil.isNull(handler), new CanNotExplainException());
         return handler;

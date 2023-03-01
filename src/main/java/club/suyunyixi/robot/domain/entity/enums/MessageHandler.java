@@ -20,6 +20,7 @@ public enum MessageHandler {
      * 普通提问, 优先级不高
      */
     QUEST(StrUtil.split("问,提问,请问"), QUEST_LEVEL),
+    CHAT_GPT_QUEST(StrUtil.split(""), QUEST_LEVEL),
     MYSTERIOUS_CODE(StrUtil.split("神秘代码,代码"), MYSTERIOUS_CODE_LEVEL),
     PICTURE_2(StrUtil.split("二刺螈图片,二刺螈,二次元图片"), PICTURE_2_LEVEL),
     PICTURE_3(StrUtil.split("三次元,三次元图片"), PICTURE_3_LEVEL),

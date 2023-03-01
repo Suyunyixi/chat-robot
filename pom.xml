@@ -22,12 +22,25 @@
         <hutool.version>5.8.11</hutool.version>
     </properties>
     <dependencies>
+        <!-- gpt3 -->
+        <dependency>
+            <groupId>com.theokanning.openai-gpt3-java</groupId>
+            <artifactId>api</artifactId>
+            <version>0.10.0</version>
+        </dependency>
+        <!-- chatgpt -->
+        <dependency>
+            <groupId>com.github.plexpt</groupId>
+            <artifactId>chatgpt</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <!-- aop -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
             <version>3.0.2</version>
         </dependency>
-        <!-- aop -->
+        <!-- fastjson2 -->
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
