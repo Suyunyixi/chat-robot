@@ -12,11 +12,12 @@ import com.unfbx.chatgpt.entity.completions.CompletionResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 /**
- * 阿P处理器
+ * gpt-3(maybe 4?)处理器
  *
  * @author Suyunyixi
  * @date 2023/2/11 19:54
@@ -26,9 +27,8 @@ import java.util.stream.Collectors;
 @MessageHandlerStrategy(handler = MessageHandler.CHAT_GPT_3_QUEST)
 public class Gpt3Handler extends AbstractHandler {
 
-    public static final String API_KEY = "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";
-
-    private final OpenAiClient openAiClient = new OpenAiClient(API_KEY, 60, 60, 60);
+    @Resource
+    private OpenAiClient openAiClient;
 
     @Override
     public BaseRespMessage explain(BaseParam param, BaseContext data) {

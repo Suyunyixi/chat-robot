@@ -30,9 +30,6 @@ public class MessageExplainApplication {
         MessageHandler handler = StrUtil.getStartWith(message);
         // 额外处理表情包模式
         handler = explainForMarketFace(handler, param);
-        if (ObjectUtil.isNull(handler)) {
-            handler = MessageHandler.CHAT_GPT_3_QUEST;
-        }
         // 无法解释
         ExceptionUtil.throwIfTrue(ObjectUtil.isNull(handler), new CanNotExplainException());
         return handler;
@@ -44,14 +41,18 @@ public class MessageExplainApplication {
     private MessageHandler explainForMarketFace(MessageHandler handler, BaseParam param) {
         Map<String, Message.Element<?>> marketFaces = MapUtil.newHashMap();
         // 额外处理市场表情
-        if (ObjectUtil.isNull(handler) && CollUtil.isNotEmpty(param.getMarketFaces())) {
+        if (CollUtil.isNotEmpty(param.getMarketFaces())) {
             Set<String> keywords = MessageHandler.EXTRA_MARKET_FACE.getKeywords();
+            // 筛选出中标的市场表情
             param.getMarketFaces().forEach((k, v) -> {
                 if (keywords.contains(k)) {
                     marketFaces.put(k, v);
                 }
             });
-            if (CollUtil.isNotEmpty(marketFaces)) {
+            // 如果存在处理市场表情 && (之前没有handler || 之前的handler级别高于额外表情)
+            if (CollUtil.isNotEmpty(marketFaces)
+                    && (ObjectUtil.isNull(handler)
+                    || handler.getLevel() > MessageHandler.EXTRA_MARKET_FACE.getLevel())) {
                 handler = MessageHandler.EXTRA_MARKET_FACE;
                 param.setMarketFaces(marketFaces);
             }
