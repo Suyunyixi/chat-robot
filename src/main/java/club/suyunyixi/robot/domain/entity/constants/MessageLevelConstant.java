@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MessageLevelConstant {
     /**
-     * 普通提问权重1000表示不重要的处理
+     * 普通提问权重9999999表示不重要的处理
      */
-    public static final int QUEST_LEVEL = 10000;
+    public static final int QUEST_LEVEL = 9999999;
     public static final int MYSTERIOUS_CODE_LEVEL = 1001;
     public static final int PICTURE_3_LEVEL = 1002;
     public static final int PICTURE_2_LEVEL = 1003;
-    public static final int EXTRA_LEVEL = 9999999;
+    public static final int EXTRA_LEVEL = 10000;
 }
