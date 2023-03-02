@@ -24,9 +24,9 @@
     <dependencies>
         <!-- gpt3 -->
         <dependency>
-            <groupId>com.theokanning.openai-gpt3-java</groupId>
-            <artifactId>api</artifactId>
-            <version>0.10.0</version>
+            <groupId>com.unfbx</groupId>
+            <artifactId>chatgpt-java</artifactId>
+            <version>1.0.2</version>
         </dependency>
         <!-- chatgpt -->
         <dependency>
