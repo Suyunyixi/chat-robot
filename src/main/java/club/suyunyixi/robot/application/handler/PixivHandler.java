@@ -1,7 +1,7 @@
 package club.suyunyixi.robot.application.handler;
 
 import club.suyunyixi.robot.application.query.PixivQuery;
-import club.suyunyixi.robot.domain.command.AbstractHandler;
+import club.suyunyixi.robot.domain.command.handler.AbstractHandler;
 import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;

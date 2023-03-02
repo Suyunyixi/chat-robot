@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.register;
 
-import club.suyunyixi.robot.domain.command.AbstractHandler;
+import club.suyunyixi.robot.domain.command.handler.AbstractHandler;
 import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
 import club.suyunyixi.robot.infrastructure.anno.MessageHandlerStrategy;
 import club.suyunyixi.robot.infrastructure.error.BizError;

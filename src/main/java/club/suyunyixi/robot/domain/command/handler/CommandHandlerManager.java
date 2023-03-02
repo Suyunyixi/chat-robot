@@ -1,4 +1,4 @@
-package club.suyunyixi.robot.domain.command;
+package club.suyunyixi.robot.domain.command.handler;
 
 import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;

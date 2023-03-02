@@ -1,7 +1,7 @@
 package club.suyunyixi.robot.application.chain;
 
 import club.suyunyixi.robot.application.MessageExplainApplication;
-import club.suyunyixi.robot.domain.command.BaseChain;
+import club.suyunyixi.robot.domain.command.chain.BaseChain;
 import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;

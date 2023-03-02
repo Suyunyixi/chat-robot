@@ -22,6 +22,12 @@
         <hutool.version>5.8.11</hutool.version>
     </properties>
     <dependencies>
+        <!-- quartz -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.3.2</version>
+        </dependency>
         <!-- gpt3 -->
         <dependency>
             <groupId>com.unfbx</groupId>

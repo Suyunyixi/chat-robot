@@ -1,13 +1,12 @@
 package club.suyunyixi.robot.infrastructure.register;
 
-import club.suyunyixi.robot.domain.command.BaseChain;
+import club.suyunyixi.robot.domain.command.chain.BaseChain;
 import club.suyunyixi.robot.domain.entity.enums.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import cn.hutool.core.collection.CollUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
