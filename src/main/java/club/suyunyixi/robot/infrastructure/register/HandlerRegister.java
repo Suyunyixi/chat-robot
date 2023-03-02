@@ -19,6 +19,8 @@ import java.util.EnumMap;
 import java.util.Map;
 
 /**
+ * handler策略模式注册
+ *
  * @author Suyunyixi
  * @date 2022/9/23 18:37
  **/
