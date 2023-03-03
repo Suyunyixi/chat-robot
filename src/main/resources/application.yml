@@ -1,3 +1,15 @@
+## file
 file:
   path:
+    ## openai api key
     gpt3ApiKey: C:\Users\Administrator\Desktop\openaikey.txt
+
+## job config
+job:
+  config:
+    bili:
+      - bots: "1730814323"
+        groups: "793900042"
+        uids: "3780145"
+        # 0 关注 1 番剧
+        type: 0

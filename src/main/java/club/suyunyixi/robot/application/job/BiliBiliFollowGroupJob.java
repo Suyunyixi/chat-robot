@@ -2,9 +2,9 @@ package club.suyunyixi.robot.application.job;
 
 import club.suyunyixi.robot.application.query.BiliBiliQuery;
 import club.suyunyixi.robot.domain.command.job.GroupJobHandler;
+import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import club.suyunyixi.robot.domain.entity.dto.bili.BilibiliDynamic;
 import club.suyunyixi.robot.domain.entity.enums.bili.BiliApiType;
-import club.suyunyixi.robot.domain.entity.job.resp.JobGroupRespMessage;
 import club.suyunyixi.robot.infrastructure.utils.TimeUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateUtil;
@@ -23,7 +23,7 @@ import java.util.List;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BiliBiliFollowGroupJob
-        extends GroupJobHandler<BilibiliDynamic, JobGroupRespMessage> {
+        extends GroupJobHandler<BilibiliDynamic, BaseRespMessage> {
 
     private String uid;
     private BiliApiType type;
@@ -39,8 +39,8 @@ public class BiliBiliFollowGroupJob
     }
 
     @Override
-    public JobGroupRespMessage toResp(BilibiliDynamic dynamic) {
-        return (JobGroupRespMessage) JobGroupRespMessage.reply(replyMsg(dynamic));
+    public BaseRespMessage toResp(BilibiliDynamic dynamic) {
+        return BaseRespMessage.reply(replyMsg(dynamic));
     }
 
     @Override

@@ -1,13 +1,13 @@
 package club.suyunyixi.robot.domain.command.job;
 
-import club.suyunyixi.robot.domain.entity.job.resp.JobFriendRespMessage;
+import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import love.forte.simbot.bot.Bot;
 
 /**
  * @author Suyunyixi
  * @date 2023/3/2 17:51
  */
-public abstract class FriendJobHandler<T, R extends JobFriendRespMessage>
+public abstract class FriendJobHandler<T, R extends BaseRespMessage>
         extends AbstractJobHandler<T, R>
         implements Runnable {
 
@@ -26,8 +26,6 @@ public abstract class FriendJobHandler<T, R extends JobFriendRespMessage>
      */
     @Override
     public void reply(R r, Bot bot) {
-        for (String friendId : r.getFriends()) {
-            // 主动对好友回复
-        }
+
     }
 }

@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.domain.command.job;
 
-import club.suyunyixi.robot.domain.entity.job.resp.JobGroupRespMessage;
+import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import club.suyunyixi.robot.infrastructure.utils.BotUtil;
 import cn.hutool.core.lang.Pair;
 import love.forte.simbot.Identifies;
@@ -16,7 +16,7 @@ import java.util.List;
  * @author Suyunyixi
  * @date 2023/3/2 17:41
  */
-public abstract class GroupJobHandler<T, R extends JobGroupRespMessage>
+public abstract class GroupJobHandler<T, R extends BaseRespMessage>
         extends AbstractJobHandler<T, R>
         implements Runnable, GroupReplyHandler {
 
