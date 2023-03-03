@@ -3,6 +3,7 @@ package club.suyunyixi.robot.domain.command.job;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import cn.hutool.core.util.ObjectUtil;
 import lombok.extern.slf4j.Slf4j;
+import love.forte.simbot.bot.Bot;
 
 /**
  * 抽象的定时任务处理
@@ -14,10 +15,21 @@ import lombok.extern.slf4j.Slf4j;
 public abstract class AbstractJobHandler<T, R extends BaseRespMessage>
         implements CommandJobHandler<T, R> {
 
+    private Bot bot;
+
+    public void build(Bot bot) {
+        this.bot = bot;
+    }
+
+    @Override
+    public Bot bot() {
+        return bot;
+    }
+
     public void execute() {
         T message = listened();
         if (ObjectUtil.isNotNull(message)) {
-            R r = toMessage(message);
+            R r = toResp(message);
             if (r.isReply()) {
                 reply(r, bot());
             }

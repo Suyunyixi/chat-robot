@@ -4,7 +4,7 @@ import club.suyunyixi.robot.application.chain.MessageFilterChain;
 import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
-import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ExceptionHandler;
 import club.suyunyixi.robot.infrastructure.utils.BotUtil;
 import club.suyunyixi.robot.infrastructure.utils.ThreadLocalUtil;
@@ -15,7 +15,7 @@ import love.forte.simbot.event.GroupMessageEvent;
 import love.forte.simbot.message.Messages;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * 消息处理

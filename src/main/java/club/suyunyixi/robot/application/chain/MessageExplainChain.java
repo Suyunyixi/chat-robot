@@ -5,12 +5,12 @@ import club.suyunyixi.robot.domain.command.chain.BaseChain;
 import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
-import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import static club.suyunyixi.robot.domain.entity.constants.ChinaConstant.*;
 

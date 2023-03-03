@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.domain.entity.base;
 
-import club.suyunyixi.robot.domain.entity.dto.ResqImage;
+import club.suyunyixi.robot.domain.entity.dto.base.ResqImage;
 import cn.hutool.core.text.CharSequenceUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

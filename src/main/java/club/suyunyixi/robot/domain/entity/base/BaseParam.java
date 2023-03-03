@@ -1,11 +1,10 @@
 package club.suyunyixi.robot.domain.entity.base;
 
-import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import love.forte.simbot.message.Message;
 
-import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 

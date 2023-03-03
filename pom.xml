@@ -5,7 +5,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.0</version>
+        <!-- max level -->
+        <version>3.0.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>club.suyunyixi</groupId>
@@ -14,7 +15,12 @@
     <name>robot</name>
     <description>robot</description>
     <properties>
+        <skipTests>true</skipTests>
+        <!-- max level -->
+        <spring-cloud.version>2022.0.1</spring-cloud.version>
+        <!-- max level -->
         <java.version>17</java.version>
+
         <simbot.version>3.0.0-RC.2</simbot.version>
         <mirai.version>3.0.0.0-M5</mirai.version>
         <mapstruct.version>1.5.2.Final</mapstruct.version>
@@ -22,13 +28,18 @@
         <hutool.version>5.8.11</hutool.version>
     </properties>
     <dependencies>
+        <!-- feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
         <!-- quartz -->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
             <version>2.3.2</version>
         </dependency>
-        <!-- gpt3 -->
+        <!-- chatgpt sdk for java -->
         <dependency>
             <groupId>com.unfbx</groupId>
             <artifactId>chatgpt-java</artifactId>
@@ -123,6 +134,18 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

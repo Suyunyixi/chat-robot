@@ -1,16 +1,16 @@
 package club.suyunyixi.robot.infrastructure.register;
 
 import club.suyunyixi.robot.domain.command.chain.BaseChain;
-import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import cn.hutool.core.collection.CollUtil;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;

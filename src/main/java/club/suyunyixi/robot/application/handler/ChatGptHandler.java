@@ -4,7 +4,7 @@ import club.suyunyixi.robot.domain.command.handler.AbstractHandler;
 import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
-import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
 import club.suyunyixi.robot.infrastructure.anno.MessageHandlerStrategy;
 import cn.hutool.core.collection.ListUtil;
 import com.github.plexpt.chatgpt.Chatbot;

@@ -1,4 +1,4 @@
-package club.suyunyixi.robot.domain.entity.job;
+package club.suyunyixi.robot.domain.entity.job.resp;
 
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,6 @@ import java.util.List;
  * @date 2023/3/2 17:24
  */
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)

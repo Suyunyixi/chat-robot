@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
-import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
 import cn.hutool.core.text.CharSequenceUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package club.suyunyixi.robot.domain.entity.enums;
+package club.suyunyixi.robot.domain.entity.enums.base;
 
 /**
  * @author Suyunyixi

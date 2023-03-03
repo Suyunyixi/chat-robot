@@ -11,13 +11,12 @@ import love.forte.simbot.definition.Group;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Optional;
 
 /**
  * @author Suyunyixi
  * @date 2023/3/2 17:59
- * @email xukai@co-mall.com
  */
 @Component
 public class TimingTask {
@@ -32,7 +31,7 @@ public class TimingTask {
         for (BotManager<?> manager : botManagers) {
             // 寻找你所需要的botManager，例如MiraiBotManager
             if (manager instanceof MiraiBotManager miraiBotManager) {
-                MiraiBot bot = miraiBotManager.get(Identifies.ID("1443510273"));
+                MiraiBot bot = miraiBotManager.get(Identifies.ID("1730814323"));
                 Optional.ofNullable(bot).ifPresent(b -> {
                     //  TODO to config
                     Group group = b.getGroup(Identifies.ID("793900042"));
@@ -50,11 +49,11 @@ public class TimingTask {
         for (BotManager<?> manager : botManagers) {
             // 寻找你所需要的botManager，例如MiraiBotManager
             if (manager instanceof MiraiBotManager miraiBotManager) {
-                MiraiBot bot = miraiBotManager.get(Identifies.ID("1443510273"));
+                MiraiBot bot = miraiBotManager.get(Identifies.ID("1730814323"));
                 Optional.ofNullable(bot).ifPresent(b -> {
                     //  TODO to config
                     Group group = b.getGroup(Identifies.ID("793900042"));
-                    Optional.ofNullable(group).ifPresent(g -> group.sendAsync("3点了, 饮茶先啦, 做么斯做!!!"));
+                    Optional.ofNullable(group).ifPresent(g -> group.sendAsync("15点了, 饮茶先啦, 做么斯做!!!"));
                 });
             }
         }

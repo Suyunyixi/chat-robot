@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.anno;
 
-import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
 
 import java.lang.annotation.*;
 

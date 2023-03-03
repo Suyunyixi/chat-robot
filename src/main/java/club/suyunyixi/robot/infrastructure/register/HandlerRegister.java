@@ -1,20 +1,20 @@
 package club.suyunyixi.robot.infrastructure.register;
 
 import club.suyunyixi.robot.domain.command.handler.AbstractHandler;
-import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
 import club.suyunyixi.robot.infrastructure.anno.MessageHandlerStrategy;
 import club.suyunyixi.robot.infrastructure.error.BizError;
 import club.suyunyixi.robot.infrastructure.utils.ExceptionUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.util.EnumMap;
 import java.util.Map;
 

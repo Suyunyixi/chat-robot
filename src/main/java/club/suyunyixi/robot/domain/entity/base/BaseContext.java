@@ -1,7 +1,7 @@
 package club.suyunyixi.robot.domain.entity.base;
 
-import club.suyunyixi.robot.domain.entity.dto.ResqImage;
-import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
+import club.suyunyixi.robot.domain.entity.dto.base.ResqImage;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
 import cn.hutool.core.collection.ListUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

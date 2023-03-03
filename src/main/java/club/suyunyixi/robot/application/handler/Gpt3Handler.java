@@ -4,7 +4,7 @@ import club.suyunyixi.robot.domain.command.handler.AbstractHandler;
 import club.suyunyixi.robot.domain.entity.base.BaseContext;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
-import club.suyunyixi.robot.domain.entity.enums.MessageHandler;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
 import club.suyunyixi.robot.infrastructure.anno.MessageHandlerStrategy;
 import com.unfbx.chatgpt.OpenAiClient;
 import com.unfbx.chatgpt.entity.common.Choice;
@@ -12,7 +12,7 @@ import com.unfbx.chatgpt.entity.completions.CompletionResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 

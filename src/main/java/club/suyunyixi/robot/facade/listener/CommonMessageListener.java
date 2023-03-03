@@ -2,7 +2,7 @@ package club.suyunyixi.robot.facade.listener;
 
 import club.suyunyixi.robot.application.GroupMessageApplication;
 import club.suyunyixi.robot.domain.entity.base.BaseParam;
-import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ExceptionHandler;
 import club.suyunyixi.robot.infrastructure.utils.ThreadLocalUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -24,7 +24,7 @@ import net.mamoe.mirai.message.data.MarketFace;
 import net.mamoe.mirai.message.data.SingleMessage;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 

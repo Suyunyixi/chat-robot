@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.domain.command.chain;
 
-import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import club.suyunyixi.robot.infrastructure.error.BizError;
 import club.suyunyixi.robot.infrastructure.register.ChainRegister;

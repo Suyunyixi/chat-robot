@@ -16,7 +16,7 @@ public interface CommandJobHandler<T, R extends BaseRespMessage> {
      * @param message 泛型的响应消息
      * @return 泛型消息转换成回复
      */
-    R toMessage(T message);
+    R toResp(T message);
 
     /**
      * 执行业务监听操作
