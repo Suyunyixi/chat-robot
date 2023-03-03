@@ -3,6 +3,8 @@ package club.suyunyixi.robot.domain.command.job;
 import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
 import club.suyunyixi.robot.infrastructure.utils.BotUtil;
 import cn.hutool.core.lang.Pair;
+import cn.hutool.core.text.CharSequenceUtil;
+import cn.hutool.crypto.digest.MD5;
 import love.forte.simbot.Identifies;
 import love.forte.simbot.bot.Bot;
 import love.forte.simbot.definition.Group;
@@ -44,7 +46,8 @@ public abstract class GroupJobHandler<T, R extends BaseRespMessage>
             Group group = bot.getGroup(Identifies.ID(groupId));
             if (group != null) {
                 Pair<Boolean, Messages> pair = BotUtil.assemble(r);
-                group.sendAsync(pair.getValue());
+                Messages value = pair.getValue();
+                group.sendAsync(value);
             }
         }
     }

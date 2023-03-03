@@ -3,8 +3,9 @@ package club.suyunyixi.robot.infrastructure.register;
 import club.suyunyixi.robot.infrastructure.utils.ApplicationUtil;
 import cn.hutool.core.collection.CollUtil;
 import jakarta.annotation.Resource;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +14,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * 机器人后台定时线程，每 3 分钟执行一次，用户可向此类提交后台任务
+ *
+ * @author Suyunyixi
  */
 @Slf4j
 @Component
-public class RobotJobRegister {
+public class RobotJobRegister implements ApplicationRunner {
     @Resource
     private ApplicationUtil applicationUtil;
     /**
@@ -24,20 +27,8 @@ public class RobotJobRegister {
      */
     private static final List<Runnable> TASKS = new CopyOnWriteArrayList<>();
 
-    /**
-     * 需要动态刷新
-     */
-    @SneakyThrows
-    @Scheduled(cron = "0 0/1 * * * ? ")
-    public void init() {
-        // 初始化任务
-        rmAll();
-        addCronTask(applicationUtil.tasks());
-        log.info("刷新task, num: {}", TASKS.size());
-    }
-
     @Scheduled(cron = "0 0/3 * * * ? ")
-    public void run() {
+    public void runTask() {
         // 任务启动
         for (Runnable task : TASKS) {
             task.run();
@@ -63,7 +54,10 @@ public class RobotJobRegister {
         TASKS.remove(task);
     }
 
-    public static void rmAll() {
-        TASKS.removeAll(TASKS);
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        // 初始化任务
+        addCronTask(applicationUtil.tasks());
+        log.info("注册task, num: {}", TASKS.size());
     }
 }

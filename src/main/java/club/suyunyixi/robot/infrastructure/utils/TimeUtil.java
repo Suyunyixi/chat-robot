@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TimeUtil {
-    private static long APPROACHING = 10 * 1000 * 60L;
+    private static long APPROACHING = 10 * 60L;
 
     public static boolean approaching(Long time) {
         if (ObjectUtil.isNotNull(time)) {
@@ -20,7 +20,6 @@ public class TimeUtil {
     }
 
     private static boolean between(long l) {
-        return (-1 * APPROACHING <= l && l <= APPROACHING)
-                || (-1 * APPROACHING * 1000 <= l && l <= APPROACHING * 1000);
+        return l >= 1_000_000_000_000L ? l <= APPROACHING * 1000 : l <= APPROACHING;
     }
 }

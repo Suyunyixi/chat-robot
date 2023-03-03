@@ -58,7 +58,8 @@ public class ApplicationUtil {
                         && ObjectUtil.isNotEmpty(type)) {
                     for (String uid : uids) {
                         for (String bot : bots) {
-                            list.add(new BiliBiliFollowGroupJob(findBot(bot), uid, groups, type));
+                            MiraiBot miraiBot = findBot(bot);
+                            Optional.ofNullable(miraiBot).ifPresent(m -> list.add(new BiliBiliFollowGroupJob(miraiBot, uid, groups, type)));
                         }
                     }
                 }

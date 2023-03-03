@@ -56,14 +56,19 @@ public class BiliBiliFollowGroupJob
     public String replyMsg(BilibiliDynamic dynamic) {
         return switch (type) {
             case VIDEO -> String.format("您订阅的番剧 %s 更新啦\n", dynamic.getAuthName()) +
-                    String.format("更新时间：%s\n", DateUtil.format(new Date(dynamic.getPubTime()), DatePattern.CHINESE_DATE_FORMAT)) +
+                    String.format("更新时间：%s\n", DateUtil.format(new Date(dynamic.getPubTime()), DatePattern.CHINESE_DATE_TIME_PATTERN)) +
                     String.format("跳转链接：%s\n", dynamic.getJumpUrl()) +
                     String.format("更新章节：%s\n", dynamic.getDesc()) +
                     String.format("分享描述：%s\n", dynamic.getPubAction());
             case SPACE -> String.format("您订阅的 up 主 %s %s\n", dynamic.getAuthName(), dynamic.getPubAction()) +
-                    String.format("更新时间：%s\n", DateUtil.format(new Date(dynamic.getPubTime()), DatePattern.CHINESE_DATE_FORMAT)) +
+                    String.format("更新时间：%s\n", DateUtil.format(new Date(dynamic.getPubTime()), DatePattern.CHINESE_DATE_TIME_PATTERN)) +
                     String.format("跳转链接：%s\n", dynamic.getJumpUrl()) +
                     String.format("描述内容：%s\n", dynamic.getDesc());
         };
+    }
+
+    @Override
+    public int hashCode() {
+        return bot().getId().hashCode() - uid.hashCode() + type.hashCode() / 1000;
     }
 }
