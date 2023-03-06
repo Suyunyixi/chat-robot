@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 
 import jakarta.annotation.Resource;
 
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+
 /**
  * @author Suyunyixi
  * @date 2023/3/2 15:16
@@ -20,6 +23,14 @@ public class Gpt3Config {
 
     @Bean
     public OpenAiClient openAiClient() {
-        return new OpenAiClient(new FileReader(properties.getGpt3ApiKey()).readString(), 60, 60, 60);
+        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("localhost", 7890));
+        String apiKey = new FileReader(properties.getGpt3ApiKey()).readString();
+        return OpenAiClient.builder()
+                .apiKey(apiKey)
+                .connectTimeout(50)
+                .writeTimeout(50)
+                .readTimeout(50)
+                .proxy(proxy)
+                .build();
     }
 }

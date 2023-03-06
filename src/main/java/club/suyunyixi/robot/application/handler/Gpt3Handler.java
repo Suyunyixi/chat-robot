@@ -33,7 +33,7 @@ public class Gpt3Handler extends AbstractHandler {
     @Override
     public BaseRespMessage explain(BaseParam param, BaseContext data) {
         CompletionResponse completions = openAiClient.completions(param.getReqMessage());
-        return BaseRespMessage.reply(data, Arrays.stream(completions.getChoices()).map(Choice::toString).collect(Collectors.joining("\n")));
+        return BaseRespMessage.reply(data, Arrays.stream(completions.getChoices()).map(Choice::getText).collect(Collectors.joining("\n")));
     }
 
     @Override
