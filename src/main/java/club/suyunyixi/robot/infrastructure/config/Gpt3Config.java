@@ -27,9 +27,9 @@ public class Gpt3Config {
         String apiKey = new FileReader(properties.getGpt3ApiKey()).readString();
         return OpenAiClient.builder()
                 .apiKey(apiKey)
-                .connectTimeout(50)
-                .writeTimeout(50)
-                .readTimeout(50)
+                .connectTimeout(120)
+                .writeTimeout(120)
+                .readTimeout(120)
                 .proxy(proxy)
                 .build();
     }
