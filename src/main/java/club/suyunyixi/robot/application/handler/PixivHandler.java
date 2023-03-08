@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service;
 
 import jakarta.annotation.Resource;
 
+import java.util.Arrays;
+import java.util.List;
+
+import static cn.hutool.core.text.CharSequenceUtil.SPACE;
+
 /**
  * 阿P处理器
  *
@@ -29,7 +34,8 @@ public class PixivHandler extends AbstractHandler {
     @Override
     public BaseRespMessage explain(BaseParam param, BaseContext data) {
         data.setRespAts(ListUtil.toList(param.getAt()));
-        return BaseRespMessage.reply(data, query.search(data.getReqContent(), Boolean.TRUE));
+        List<String> tags = Arrays.stream(data.getReqContent().split(SPACE)).map(String::trim).toList();
+        return BaseRespMessage.reply(data, query.getImagePid(tags));
     }
 
     @Override
