@@ -2,7 +2,7 @@
 file:
   path:
     ## openai api key
-    gpt3ApiKey: C:\Users\Administrator\Desktop\openaikey.txt
+    gpt3ApiKey: c2stSjZqU3FMbUtrWkZnMnhjd29WSW5UM0JsYmtGSkhuN2hHNE1sd2FWaVduRFdOMklm
 
 ## job config
 job:
