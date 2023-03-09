@@ -9,5 +9,5 @@ RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shang
 COPY target/*.jar /app.jar
 EXPOSE 8080
 
-#
-ENTRYPOINT ["/bin/sh","-c","java -Dmirai.slider.captcha.supported -Dfile.encoding=utf8 -Djava.security.egd=file:/dev/./urandom -jar app.jar ${PARAMS}"]
+# java -Dmirai.slider.captcha.supported -Dfile.encoding=utf8 -Djava.security.egd=file:/dev/./urandom -jar app.jar --server.port=8080
+#ENTRYPOINT ["/bin/sh","-c","java -Dmirai.slider.captcha.supported -Dfile.encoding=utf8 -Djava.security.egd=file:/dev/./urandom -jar app.jar ${PARAMS}"]
