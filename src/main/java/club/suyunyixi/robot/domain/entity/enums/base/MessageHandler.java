@@ -1,10 +1,13 @@
 package club.suyunyixi.robot.domain.entity.enums.base;
 
 import club.suyunyixi.robot.infrastructure.utils.StrUtil;
+import cn.hutool.core.lang.Pair;
+import cn.hutool.core.text.CharSequenceUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import static club.suyunyixi.robot.domain.entity.constants.MessageLevelConstant.*;
@@ -49,5 +52,19 @@ public enum MessageHandler {
 
     public static boolean isExtra(MessageHandler handler) {
         return EXTRA.contains(handler);
+    }
+
+    /**
+     * 返回一句话中是否是触发该handler关键字的
+     *
+     * @param message message
+     * @return 触发关键字和该对象的二元组
+     */
+    public Pair<MessageHandler, String> keyword(String message) {
+        Optional<Pair<MessageHandler, String>> pair = this.keywords.stream()
+                .filter(k -> CharSequenceUtil.startWith(message.toLowerCase(), k.toLowerCase()))
+                .map(keyword -> new Pair<>(this, keyword))
+                .findFirst();
+        return pair.orElse(null);
     }
 }

@@ -1,7 +1,9 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
 import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
+import cn.hutool.core.lang.Pair;
 import cn.hutool.core.text.CharSequenceUtil;
+import cn.hutool.core.util.ObjectUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -26,11 +28,11 @@ public class StrUtil {
         return BLANK;
     }
 
-    public static MessageHandler getStartWith(String message) {
+    public static Pair<MessageHandler, String> getStartWith(String message) {
         return Arrays.stream(MessageHandler.values())
-                .filter(m -> m.getKeywords().stream()
-                        .anyMatch(k -> CharSequenceUtil.startWith(message.toLowerCase(), k.toLowerCase())))
-                .min(Comparator.comparingLong(MessageHandler::getLevel))
+                .map(m -> m.keyword(message))
+                .filter(ObjectUtil::isNotNull)
+                .findFirst()
                 .orElse(null);
     }
 

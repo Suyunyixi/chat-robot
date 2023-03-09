@@ -26,6 +26,10 @@ public class BaseContext {
     private MessageHandler handler;
     private String reqContent;
     /**
+     * 触发的关键字
+     */
+    private String reqKeyword;
+    /**
      * 需要回复的人
      */
     private List<String> respAts = ListUtil.toList();

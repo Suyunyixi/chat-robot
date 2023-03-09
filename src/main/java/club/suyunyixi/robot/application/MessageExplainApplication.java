@@ -6,6 +6,7 @@ import club.suyunyixi.robot.infrastructure.exception.CanNotExplainException;
 import club.suyunyixi.robot.infrastructure.utils.ExceptionUtil;
 import club.suyunyixi.robot.infrastructure.utils.StrUtil;
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.lang.Pair;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ObjectUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -24,21 +25,21 @@ import java.util.Set;
 @Slf4j
 @Component
 public class MessageExplainApplication {
-    public MessageHandler explain(BaseParam param) {
+    public Pair<MessageHandler, String> explain(BaseParam param) {
         String message = param.getReqMessage();
         // 字符开头匹配模式
-        MessageHandler handler = StrUtil.getStartWith(message);
+        Pair<MessageHandler, String> pair = StrUtil.getStartWith(message);
         // 额外处理表情包模式
-        handler = explainForMarketFace(handler, param);
+        pair = explainForMarketFace(pair, param);
         // 无法解释
-        ExceptionUtil.throwIfTrue(ObjectUtil.isNull(handler), new CanNotExplainException());
-        return handler;
+        ExceptionUtil.throwIfTrue(ObjectUtil.isNull(pair), new CanNotExplainException());
+        return pair;
     }
 
     /**
      * 额外处理表情包模式
      */
-    private MessageHandler explainForMarketFace(MessageHandler handler, BaseParam param) {
+    private Pair<MessageHandler, String> explainForMarketFace(Pair<MessageHandler, String> pair, BaseParam param) {
         Map<String, Message.Element<?>> marketFaces = MapUtil.newHashMap();
         // 额外处理市场表情
         if (CollUtil.isNotEmpty(param.getMarketFaces())) {
@@ -51,12 +52,12 @@ public class MessageExplainApplication {
             });
             // 如果存在处理市场表情 && (之前没有handler || 之前的handler级别高于额外表情)
             if (CollUtil.isNotEmpty(marketFaces)
-                    && (ObjectUtil.isNull(handler)
-                    || handler.getLevel() > MessageHandler.EXTRA_MARKET_FACE.getLevel())) {
-                handler = MessageHandler.EXTRA_MARKET_FACE;
+                    && (ObjectUtil.isNull(pair)
+                    || pair.getKey().getLevel() > MessageHandler.EXTRA_MARKET_FACE.getLevel())) {
+                pair = new Pair<>(MessageHandler.EXTRA_MARKET_FACE, null);
                 param.setMarketFaces(marketFaces);
             }
         }
-        return handler;
+        return pair;
     }
 }
