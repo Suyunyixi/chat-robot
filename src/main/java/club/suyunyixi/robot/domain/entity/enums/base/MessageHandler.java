@@ -27,7 +27,7 @@ public enum MessageHandler {
     PICTURE_3(StrUtil.split("三次元,三次元图片"), PICTURE_3_LEVEL),
     PIXIV(StrUtil.split("p,pixiv"), PICTURE_3_LEVEL),
     PIXIV_R18(StrUtil.split("p18,pixiv18,涩图,高清涩图"), PICTURE_3_LEVEL),
-    EXTRA_AGAIN(StrUtil.split("又,6,233"), EXTRA_LEVEL),
+    EXTRA_AGAIN(StrUtil.split("又,还,6,233"), EXTRA_LEVEL),
     EXTRA_MARKET_FACE(StrUtil.split("209590"), EXTRA_LEVEL),
     ;
 
