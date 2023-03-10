@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "file.path")
-public class FilePathProperties {
+@ConfigurationProperties(prefix = "key")
+public class KeyProperties {
     private String gpt3ApiKey;
+    private String baiduAk;
 }

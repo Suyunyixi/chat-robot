@@ -1,8 +1,8 @@
 ## file
-file:
-  path:
-    ## openai api key
-    gpt3ApiKey: c2stSjZqU3FMbUtrWkZnMnhjd29WSW5UM0JsYmtGSkhuN2hHNE1sd2FWaVduRFdOMklm
+key:
+  ## openai api key
+  gpt3ApiKey: c2stSjZqU3FMbUtrWkZnMnhjd29WSW5UM0JsYmtGSkhuN2hHNE1sd2FWaVduRFdOMklm
+  baiduAk: OG5tMDNhcWRrTk5seURFNkhIdkZQVWp4b0c1ZTl4czM=
 
 ## job config
 job:

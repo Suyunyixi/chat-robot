@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.config;
 
-import club.suyunyixi.robot.domain.entity.properties.FilePathProperties;
+import club.suyunyixi.robot.domain.entity.properties.KeyProperties;
 import cn.hutool.core.codec.Base64;
 import com.unfbx.chatgpt.OpenAiClient;
 import jakarta.annotation.Resource;
@@ -20,7 +20,7 @@ import java.net.Proxy;
 public class Gpt3Config {
 
     @Resource
-    private FilePathProperties properties;
+    private KeyProperties properties;
 
     @Bean
     public OpenAiClient openAiClient() {

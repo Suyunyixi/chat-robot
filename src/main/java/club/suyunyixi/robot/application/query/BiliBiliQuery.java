@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * bilibili查询api
+ */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BiliBiliQuery {
     /**
