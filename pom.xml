@@ -21,8 +21,8 @@
         <!-- max level -->
         <java.version>17</java.version>
 
-        <simbot.version>3.0.0-RC.2</simbot.version>
-        <mirai.version>3.0.0.0-M5</mirai.version>
+        <simbot.version>3.0.0-RC.3</simbot.version>
+        <mirai.version>3.0.0.0-RC</mirai.version>
         <mapstruct.version>1.5.2.Final</mapstruct.version>
         <kaml.version>0.51.0</kaml.version>
         <hutool.version>5.8.11</hutool.version>

@@ -13,7 +13,7 @@
     "heartbeatStrategy": "STAT_HB",
     "reconnectionRetryTimes": 2147483647,
     "autoReconnectOnForceOffline": true,
-    "protocol": "ANDROID_PAD",
+    "protocol": "ANDROID_WATCH",
     "highwayUploadCoroutineCount": 16,
     "deviceInfo": {
       "type": "auto"
