@@ -32,7 +32,7 @@ public class BaiduQuery {
      *
      * @param keyword 地点关键字
      */
-    public List<BaseMapDTO<SuggestionDTO>> defaultMapSearch(String keyword) {
+    public BaseMapDTO<SuggestionDTO> defaultMapSearch(String keyword) {
         return suggestion(keyword, DEFAULT_CITY);
     }
 
@@ -42,13 +42,13 @@ public class BaiduQuery {
      * @param keyword 搜索关键词
      * @param city    城市
      */
-    public List<BaseMapDTO<SuggestionDTO>> suggestion(String keyword, String city) {
+    public BaseMapDTO<SuggestionDTO> suggestion(String keyword, String city) {
         String json = mapClient.suggestion(keyword,
                 city,
                 baiduAk,
                 Boolean.TRUE,
                 "json");
-        return JSON.parseObject(json, new TypeReference<List<BaseMapDTO<SuggestionDTO>>>() {
+        return JSON.parseObject(json, new TypeReference<BaseMapDTO<SuggestionDTO>>() {
         });
     }
 }
