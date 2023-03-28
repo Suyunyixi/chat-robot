@@ -1,8 +1,11 @@
 ## file
 key:
   ## openai api key
-  gpt3ApiKey: c2stSjZqU3FMbUtrWkZnMnhjd29WSW5UM0JsYmtGSkhuN2hHNE1sd2FWaVduRFdOMklm
-  baiduAk: OG5tMDNhcWRrTk5seURFNkhIdkZQVWp4b0c1ZTl4czM=
+  gpt3ApiKey: "c2stSjZqU3FMbUtrWkZnMnhjd29WSW5UM0JsYmtGSkhuN2hHNE1sd2FWaVduRFdOMklm"
+  ## baidu ak
+  baiduAk: "OG5tMDNhcWRrTk5seURFNkhIdkZQVWp4b0c1ZTl4czM="
+  ## weather
+  weather: "1ba5795ebe67bbfdee8b908c215287b9"
 
 ## job config
 job:

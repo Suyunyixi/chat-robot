@@ -1,9 +1,9 @@
 package club.suyunyixi.robot.domain.client;
 
-import club.suyunyixi.violin.api.apiOpen.dto.APPageDTO;
-import club.suyunyixi.violin.api.apiOpen.dto.APSentencesDTO;
-import club.suyunyixi.violin.api.apiOpen.dto.APVideoDTO;
-import club.suyunyixi.violin.api.apiOpen.dto.ApiOpenDTO;
+import club.suyunyixi.robot.domain.entity.dto.ao.AOPageDTO;
+import club.suyunyixi.robot.domain.entity.dto.ao.APSentencesDTO;
+import club.suyunyixi.robot.domain.entity.dto.ao.APVideoDTO;
+import club.suyunyixi.robot.domain.entity.dto.ao.ApiOpenDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +19,7 @@ public interface AOClient {
      * 分页短视频
      */
     @GetMapping(value = "/getHaoKanVideo", produces = "application/json;charset=utf-8")
-    ApiOpenDTO<APPageDTO<APVideoDTO>> videoPage(
+    ApiOpenDTO<AOPageDTO<APVideoDTO>> videoPage(
             @RequestParam(value = "page") Integer page,
             @RequestParam(value = "size") Integer size
     );

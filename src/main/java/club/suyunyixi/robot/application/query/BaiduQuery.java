@@ -8,9 +8,8 @@ import cn.hutool.core.codec.Base64;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.TypeReference;
 import jakarta.annotation.Resource;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 import static club.suyunyixi.robot.domain.entity.constants.BaiduConstant.DEFAULT_CITY;
 
@@ -18,6 +17,7 @@ import static club.suyunyixi.robot.domain.entity.constants.BaiduConstant.DEFAULT
  * @author Suyunyixi
  * @date 2023/3/10 11:39
  */
+@Lazy
 @Component
 public class BaiduQuery {
     @Resource

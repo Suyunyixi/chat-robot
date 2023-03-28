@@ -14,4 +14,5 @@ import org.springframework.stereotype.Component;
 public class KeyProperties {
     private String gpt3ApiKey;
     private String baiduAk;
+    private String weather;
 }

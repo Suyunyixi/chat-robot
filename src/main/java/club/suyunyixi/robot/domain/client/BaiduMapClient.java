@@ -1,12 +1,8 @@
 package club.suyunyixi.robot.domain.client;
 
-import club.suyunyixi.robot.domain.entity.dto.baidu.map.BaseMapDTO;
-import club.suyunyixi.robot.domain.entity.dto.baidu.map.SuggestionDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 /**
  * @author Suyunyixi
