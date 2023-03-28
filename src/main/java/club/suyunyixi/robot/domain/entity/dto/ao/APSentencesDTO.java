@@ -1,5 +1,6 @@
 package club.suyunyixi.robot.domain.entity.dto.ao;
 
+import cn.hutool.core.text.CharSequenceUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,4 +14,8 @@ import lombok.NoArgsConstructor;
 public class APSentencesDTO {
     private String name;
     private String from;
+
+    public String toString() {
+        return CharSequenceUtil.format(name + "  ———— " + from);
+    }
 }

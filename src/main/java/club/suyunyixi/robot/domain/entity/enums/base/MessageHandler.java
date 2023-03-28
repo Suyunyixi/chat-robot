@@ -31,6 +31,11 @@ public enum MessageHandler {
     PIXIV(StrUtil.split("p,pixiv"), PICTURE_3_LEVEL),
     PIXIV_R18(StrUtil.split("p18,pixiv18,涩图,高清涩图"), PICTURE_3_LEVEL),
     EXTRA_AGAIN(StrUtil.split("又,还,6,233"), EXTRA_LEVEL),
+    BAIDU_MAP(StrUtil.split("map,地图,地点"), NORMAL),
+    SENTENCES(StrUtil.split("名人名言,专业"), NORMAL),
+    SHORT_VIDEO(StrUtil.split("好看的,短视频"), NORMAL),
+    LOVE_TALK(StrUtil.split("土味,土味情话"), NORMAL),
+    MUSIC(StrUtil.split("音乐"), NORMAL),
     EXTRA_MARKET_FACE(StrUtil.split("209590"), EXTRA_LEVEL),
     ;
 

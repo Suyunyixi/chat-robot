@@ -20,5 +20,6 @@ public class MessageLevelConstant {
     public static final int MYSTERIOUS_CODE_LEVEL = 1001;
     public static final int PICTURE_3_LEVEL = 1002;
     public static final int PICTURE_2_LEVEL = 1003;
+    public static final int NORMAL = 99999;
     public static final int EXTRA_LEVEL = 100000;
 }
