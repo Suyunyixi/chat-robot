@@ -44,19 +44,29 @@ public class ApplicationUtil {
     }
 
     private List<BiliBiliFollowGroupJob> biliTasks() {
+        // 获取bili bili动态监听配置
         List<JobConfigProperties.BiliConfig> configs = jobConfigProperties.getBili();
         List<BiliBiliFollowGroupJob> list = ListUtil.toList();
+        // 如果存在
         if (CollUtil.isNotEmpty(configs)) {
+            // 构建成任务
             for (JobConfigProperties.BiliConfig config : configs) {
+                // 获取聊天群
                 List<String> groups = config.getGroups();
+                // bili bili uid
                 List<String> uids = config.getUids();
+                // bots
                 List<String> bots = config.getBots();
+                // 监听类型
                 BiliApiType type = BiliApiType.getByCode(config.getType());
+                // 配置均完全
                 if (CollUtil.isNotEmpty(groups)
                         && CollUtil.isNotEmpty(uids)
                         && CollUtil.isNotEmpty(bots)
                         && ObjectUtil.isNotEmpty(type)) {
+                    // 每个id就是一个子任务
                     for (String uid : uids) {
+                        // 每个bot就是一个子任务
                         for (String bot : bots) {
                             MiraiBot miraiBot = findBot(bot);
                             Optional.ofNullable(miraiBot).ifPresent(m -> list.add(new BiliBiliFollowGroupJob(miraiBot, uid, groups, type)));

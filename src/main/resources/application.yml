@@ -16,3 +16,22 @@ job:
         uids: "3780145"
         # 0 关注 1 番剧
         type: 0
+
+
+## group with robot
+group:
+  task:
+    configs:
+      - event: GOOD_MORNING
+        bots: "1730814323"
+        groups: "793900042"
+        msg: "8点了, 我看还有那头猪还在睡觉!!!"
+
+      - event: DRINK_MILK_TEA
+        bots: "1730814323"
+        groups: "793900042"
+        msg: "15点了, 饮茶先啦, 做么斯做!!!"
+
+      - event: WEATHER
+        bots: "1730814323"
+        groups: "793900042"

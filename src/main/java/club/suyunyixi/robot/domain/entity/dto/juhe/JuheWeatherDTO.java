@@ -1,5 +1,7 @@
 package club.suyunyixi.robot.domain.entity.dto.juhe;
 
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.text.CharSequenceUtil;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +24,7 @@ public class JuheWeatherDTO {
     @JsonProperty("future")
     private List<FutureDTO> future;
 
+
     @NoArgsConstructor
     @Data
     public static class RealtimeDTO {
@@ -39,6 +42,15 @@ public class JuheWeatherDTO {
         private String power;
         @JsonProperty("aqi")
         private String aqi;
+
+        public String realtimeMsg(String city) {
+            return CharSequenceUtil.format(
+                    """
+                            {}, 日期: {}, 当前天气为: {}, 当前温度: {}
+                            """,
+                    city, DateUtil.now(), info, temperature
+            );
+        }
     }
 
     @NoArgsConstructor

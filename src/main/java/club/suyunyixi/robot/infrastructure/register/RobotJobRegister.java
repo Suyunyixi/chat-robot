@@ -14,6 +14,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * 机器人后台定时线程，每 3 分钟执行一次，用户可向此类提交后台任务
+ * 监听任务注册
  *
  * @author Suyunyixi
  */
