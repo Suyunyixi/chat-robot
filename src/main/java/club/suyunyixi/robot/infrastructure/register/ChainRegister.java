@@ -1,16 +1,16 @@
 package club.suyunyixi.robot.infrastructure.register;
 
-import club.suyunyixi.robot.domain.command.BaseChain;
-import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.domain.command.chain.BaseChain;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import cn.hutool.core.collection.CollUtil;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -18,11 +18,13 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
+ * 责任链注册, 采取的是多分支, 各分支树形延展的数据结构
+ *
  * @author Suyunyixi
  * @date 2022/9/23 18:37
  **/
 @Slf4j
-@Configuration
+@Component
 public class ChainRegister {
     @Resource
     private ApplicationContext applicationContext;
@@ -37,6 +39,7 @@ public class ChainRegister {
         }
         // 归类, 注册
         register(categorize(beans));
+        MAIN.forEach((k, v) -> log.info(v.toString(k)));
     }
 
     /**
@@ -77,6 +80,11 @@ public class ChainRegister {
 
 
     /**
+     * 将所有被{@link ChainService} 修饰的对象, 分为3级: lines, parents和parent's children
+     * <br>lines: lines级别表示的是{@link ChainService.ChainLine}开辟一条事件处理线, 每条线上独立分治;
+     * <br>parents: 表示以某line级别上, 父级共存为key, value为子集分散;
+     * <br>parent's children: 每个parentKey下, 该children's name为key, 共存.
+     * <br>
      * 将所有ChainService修饰的BaseChain实现类归类好
      */
     private Map<MessageSource, Map<String, Map<String, BaseChain<?, ?, ?>>>> categorize(Map<String, Object> beans) {

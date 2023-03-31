@@ -1,1 +1,37 @@
+## file
+key:
+  ## openai api key
+  gpt3ApiKey: "c2stSjZqU3FMbUtrWkZnMnhjd29WSW5UM0JsYmtGSkhuN2hHNE1sd2FWaVduRFdOMklm"
+  ## baidu ak
+  baiduAk: "OG5tMDNhcWRrTk5seURFNkhIdkZQVWp4b0c1ZTl4czM="
+  ## weather
+  weather: "1ba5795ebe67bbfdee8b908c215287b9"
 
+## job config
+job:
+  config:
+    bili:
+      - bots: "1730814323"
+        groups: "793900042"
+        uids: "3780145"
+        # 0 关注 1 番剧
+        type: 0
+
+
+## group with robot
+group:
+  task:
+    configs:
+      - event: GOOD_MORNING
+        bots: "1730814323"
+        groups: "793900042"
+        msg: "8点了, 我看还有那头猪还在睡觉!!!"
+
+      - event: DRINK_MILK_TEA
+        bots: "1730814323"
+        groups: "793900042"
+        msg: "15点了, 饮茶先啦, 做么斯做!!!"
+
+      - event: WEATHER
+        bots: "1730814323"
+        groups: "793900042"

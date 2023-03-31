@@ -1,8 +1,8 @@
 package club.suyunyixi.robot.infrastructure.anno;
 
 
-import club.suyunyixi.robot.domain.command.BaseChain;
-import club.suyunyixi.robot.domain.entity.enums.MessageSource;
+import club.suyunyixi.robot.domain.command.chain.BaseChain;
+import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
 
 import java.lang.annotation.*;
 
