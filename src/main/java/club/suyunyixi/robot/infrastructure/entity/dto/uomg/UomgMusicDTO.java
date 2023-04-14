@@ -18,8 +18,10 @@ public class UomgMusicDTO {
 
     public String toString() {
         return CharSequenceUtil.format(
-                "歌曲名称: {}\n" +
-                        "歌曲地址: {}\n" +
-                        "图片地址: {}\n", name, url, picurl);
+                """
+                        歌曲名称: {}
+                        歌曲地址: {}
+                        图片地址: {}
+                        """, name, url, picurl);
     }
 }
