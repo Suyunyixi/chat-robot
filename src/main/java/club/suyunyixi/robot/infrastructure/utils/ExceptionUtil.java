@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
-import club.suyunyixi.robot.infrastructure.error.BizError;
+import club.suyunyixi.robot.infrastructure.exception.error.BizError;
 import club.suyunyixi.robot.infrastructure.exception.BizException;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

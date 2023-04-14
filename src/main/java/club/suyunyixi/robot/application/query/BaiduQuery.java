@@ -1,9 +1,9 @@
 package club.suyunyixi.robot.application.query;
 
-import club.suyunyixi.robot.domain.client.BaiduMapClient;
-import club.suyunyixi.robot.domain.entity.dto.baidu.map.BaseMapDTO;
-import club.suyunyixi.robot.domain.entity.dto.baidu.map.SuggestionDTO;
-import club.suyunyixi.robot.domain.entity.properties.KeyProperties;
+import club.suyunyixi.robot.infrastructure.client.BaiduMapClient;
+import club.suyunyixi.robot.infrastructure.entity.dto.baidu.map.BaseMapDTO;
+import club.suyunyixi.robot.infrastructure.entity.dto.baidu.map.SuggestionDTO;
+import club.suyunyixi.robot.infrastructure.config.properties.KeyProperties;
 import cn.hutool.core.codec.Base64;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.TypeReference;
@@ -11,7 +11,7 @@ import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import static club.suyunyixi.robot.domain.entity.constants.BaiduConstant.DEFAULT_CITY;
+import static club.suyunyixi.robot.infrastructure.entity.constants.BaiduConstant.DEFAULT_CITY;
 
 /**
  * @author Suyunyixi

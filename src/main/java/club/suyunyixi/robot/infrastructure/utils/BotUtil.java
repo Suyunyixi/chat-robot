@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
-import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
+import club.suyunyixi.robot.infrastructure.common.base.BaseRespMessage;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.lang.Pair;

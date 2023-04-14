@@ -1,9 +1,9 @@
 package club.suyunyixi.robot.infrastructure.register;
 
-import club.suyunyixi.robot.domain.command.handler.AbstractHandler;
-import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
+import club.suyunyixi.robot.infrastructure.command.handler.AbstractHandler;
+import club.suyunyixi.robot.infrastructure.entity.enums.base.MessageHandler;
 import club.suyunyixi.robot.infrastructure.anno.MessageHandlerStrategy;
-import club.suyunyixi.robot.infrastructure.error.BizError;
+import club.suyunyixi.robot.infrastructure.exception.error.BizError;
 import club.suyunyixi.robot.infrastructure.utils.ExceptionUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;

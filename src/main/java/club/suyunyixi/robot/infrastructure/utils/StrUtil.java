@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.utils;
 
-import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
+import club.suyunyixi.robot.infrastructure.entity.enums.base.MessageHandler;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;

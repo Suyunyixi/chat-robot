@@ -1,7 +1,7 @@
 package club.suyunyixi.robot.application.query;
 
-import club.suyunyixi.robot.domain.client.UomgClient;
-import club.suyunyixi.robot.domain.entity.dto.uomg.UomgMusicDTO;
+import club.suyunyixi.robot.infrastructure.client.UomgClient;
+import club.suyunyixi.robot.infrastructure.entity.dto.uomg.UomgMusicDTO;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 

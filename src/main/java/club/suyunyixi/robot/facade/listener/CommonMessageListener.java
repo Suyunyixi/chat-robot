@@ -1,8 +1,8 @@
 package club.suyunyixi.robot.facade.listener;
 
 import club.suyunyixi.robot.application.GroupMessageApplication;
-import club.suyunyixi.robot.domain.entity.base.BaseParam;
-import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
+import club.suyunyixi.robot.infrastructure.common.base.BaseParam;
+import club.suyunyixi.robot.infrastructure.entity.enums.base.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ExceptionHandler;
 import club.suyunyixi.robot.infrastructure.utils.ThreadLocalUtil;
 import cn.hutool.core.collection.ListUtil;

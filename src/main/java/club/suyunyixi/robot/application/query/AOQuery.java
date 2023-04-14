@@ -1,8 +1,8 @@
 package club.suyunyixi.robot.application.query;
 
-import club.suyunyixi.robot.domain.client.AOClient;
-import club.suyunyixi.robot.domain.entity.dto.ao.APSentencesDTO;
-import club.suyunyixi.robot.domain.entity.dto.ao.APVideoDTO;
+import club.suyunyixi.robot.infrastructure.client.AOClient;
+import club.suyunyixi.robot.infrastructure.entity.dto.ao.APSentencesDTO;
+import club.suyunyixi.robot.infrastructure.entity.dto.ao.APVideoDTO;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 

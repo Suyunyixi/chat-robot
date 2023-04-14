@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.exception;
 
-import club.suyunyixi.robot.infrastructure.error.BizError;
+import club.suyunyixi.robot.infrastructure.exception.error.BizError;
 
 /**
  * 业务异常

@@ -1,8 +1,8 @@
 package club.suyunyixi.robot.facade.task;
 
 import club.suyunyixi.robot.application.query.JuheQuery;
-import club.suyunyixi.robot.domain.entity.dto.juhe.JuheWeatherDTO;
-import club.suyunyixi.robot.domain.entity.properties.GroupListenerProperties;
+import club.suyunyixi.robot.infrastructure.entity.dto.juhe.JuheWeatherDTO;
+import club.suyunyixi.robot.infrastructure.config.properties.GroupListenerProperties;
 import club.suyunyixi.robot.infrastructure.utils.ApplicationUtil;
 import cn.hutool.core.util.ObjectUtil;
 import jakarta.annotation.Resource;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
-import static club.suyunyixi.robot.domain.entity.constants.JuheConstant.DEFAULT_CITY;
+import static club.suyunyixi.robot.infrastructure.entity.constants.JuheConstant.DEFAULT_CITY;
 
 /**
  * 定时任务管理

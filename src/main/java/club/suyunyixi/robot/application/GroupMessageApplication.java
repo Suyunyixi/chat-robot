@@ -1,10 +1,10 @@
 package club.suyunyixi.robot.application;
 
 import club.suyunyixi.robot.application.chain.MessageFilterChain;
-import club.suyunyixi.robot.domain.entity.base.BaseContext;
-import club.suyunyixi.robot.domain.entity.base.BaseParam;
-import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
-import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
+import club.suyunyixi.robot.infrastructure.common.base.BaseContext;
+import club.suyunyixi.robot.infrastructure.common.base.BaseParam;
+import club.suyunyixi.robot.infrastructure.common.base.BaseRespMessage;
+import club.suyunyixi.robot.infrastructure.entity.enums.base.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ExceptionHandler;
 import club.suyunyixi.robot.infrastructure.utils.BotUtil;
 import club.suyunyixi.robot.infrastructure.utils.ThreadLocalUtil;

@@ -1,7 +1,7 @@
 package club.suyunyixi.robot.application;
 
-import club.suyunyixi.robot.domain.entity.base.BaseParam;
-import club.suyunyixi.robot.domain.entity.enums.base.MessageHandler;
+import club.suyunyixi.robot.infrastructure.common.base.BaseParam;
+import club.suyunyixi.robot.infrastructure.entity.enums.base.MessageHandler;
 import club.suyunyixi.robot.infrastructure.exception.CanNotExplainException;
 import club.suyunyixi.robot.infrastructure.utils.ExceptionUtil;
 import club.suyunyixi.robot.infrastructure.utils.StrUtil;

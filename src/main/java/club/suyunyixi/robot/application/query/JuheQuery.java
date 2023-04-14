@@ -1,8 +1,8 @@
 package club.suyunyixi.robot.application.query;
 
-import club.suyunyixi.robot.domain.client.JuheClient;
-import club.suyunyixi.robot.domain.entity.dto.juhe.JuheWeatherDTO;
-import club.suyunyixi.robot.domain.entity.properties.KeyProperties;
+import club.suyunyixi.robot.infrastructure.client.JuheClient;
+import club.suyunyixi.robot.infrastructure.entity.dto.juhe.JuheWeatherDTO;
+import club.suyunyixi.robot.infrastructure.config.properties.KeyProperties;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.register;
 
-import club.suyunyixi.robot.domain.entity.enums.base.PermissionLevel;
+import club.suyunyixi.robot.infrastructure.entity.enums.base.PermissionLevel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 

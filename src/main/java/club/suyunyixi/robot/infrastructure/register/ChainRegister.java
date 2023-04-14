@@ -1,7 +1,7 @@
 package club.suyunyixi.robot.infrastructure.register;
 
-import club.suyunyixi.robot.domain.command.chain.BaseChain;
-import club.suyunyixi.robot.domain.entity.enums.base.MessageSource;
+import club.suyunyixi.robot.infrastructure.command.chain.BaseChain;
+import club.suyunyixi.robot.infrastructure.entity.enums.base.MessageSource;
 import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import cn.hutool.core.collection.CollUtil;
 import jakarta.annotation.PostConstruct;

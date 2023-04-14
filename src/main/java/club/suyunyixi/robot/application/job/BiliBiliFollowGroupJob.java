@@ -1,10 +1,10 @@
 package club.suyunyixi.robot.application.job;
 
 import club.suyunyixi.robot.application.query.BiliBiliQuery;
-import club.suyunyixi.robot.domain.command.job.GroupJobHandler;
-import club.suyunyixi.robot.domain.entity.base.BaseRespMessage;
-import club.suyunyixi.robot.domain.entity.dto.bili.BilibiliDynamic;
-import club.suyunyixi.robot.domain.entity.enums.bili.BiliApiType;
+import club.suyunyixi.robot.infrastructure.command.job.GroupJobHandler;
+import club.suyunyixi.robot.infrastructure.common.base.BaseRespMessage;
+import club.suyunyixi.robot.infrastructure.entity.dto.bili.BiliBiliDynamic;
+import club.suyunyixi.robot.infrastructure.entity.enums.bili.BiliApiType;
 import club.suyunyixi.robot.infrastructure.utils.TimeUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateUtil;
@@ -23,7 +23,7 @@ import java.util.List;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BiliBiliFollowGroupJob
-        extends GroupJobHandler<BilibiliDynamic, BaseRespMessage> {
+        extends GroupJobHandler<BiliBiliDynamic, BaseRespMessage> {
 
     private String uid;
     private BiliApiType type;
@@ -39,21 +39,21 @@ public class BiliBiliFollowGroupJob
     }
 
     @Override
-    public BaseRespMessage toResp(BilibiliDynamic dynamic) {
+    public BaseRespMessage toResp(BiliBiliDynamic dynamic) {
         return BaseRespMessage.reply(replyMsg(dynamic));
     }
 
     @Override
     @SneakyThrows
-    public BilibiliDynamic listened() {
-        BilibiliDynamic dynamic = BiliBiliQuery.getLatestDynamic(uid);
+    public BiliBiliDynamic listened() {
+        BiliBiliDynamic dynamic = BiliBiliQuery.getLatestDynamic(uid);
         if (ObjectUtil.isNotNull(dynamic) && TimeUtil.approaching(dynamic.getPubTime())) {
             return dynamic;
         }
         return null;
     }
 
-    public String replyMsg(BilibiliDynamic dynamic) {
+    public String replyMsg(BiliBiliDynamic dynamic) {
         return switch (type) {
             case VIDEO -> String.format("您订阅的番剧 %s 更新啦\n", dynamic.getAuthName()) +
                     String.format("更新时间：%s\n", DateUtil.format(new Date(dynamic.getPubTime()), DatePattern.CHINESE_DATE_TIME_PATTERN)) +

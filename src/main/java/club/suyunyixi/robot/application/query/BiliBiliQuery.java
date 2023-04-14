@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.application.query;
 
-import club.suyunyixi.robot.domain.entity.dto.bili.BilibiliDynamic;
+import club.suyunyixi.robot.infrastructure.entity.dto.bili.BiliBiliDynamic;
 import club.suyunyixi.robot.infrastructure.utils.IOUtil;
 import club.suyunyixi.robot.infrastructure.utils.MapGetter;
 import cn.hutool.core.collection.CollUtil;
@@ -36,7 +36,7 @@ public class BiliBiliQuery {
      * @return
      * @throws IOException
      */
-    public static BilibiliDynamic getLatestFanDrama(String sid) throws IOException {
+    public static BiliBiliDynamic getLatestFanDrama(String sid) throws IOException {
         URL url = new URL(FAN_API.replace("$SID", sid));
         MapGetter getter = IOUtil.sendAndGetResponseMapGetter(url, "GET", null, null);
         MapGetter result = getter.getMapGetter("result");
@@ -46,7 +46,7 @@ public class BiliBiliQuery {
             return null;
         }
         MapGetter ep = eps.get(0);
-        return new BilibiliDynamic()
+        return new BiliBiliDynamic()
                 .setAuthName(result.getString("season_title"))
                 .setId(result.getString("season_id", true))
                 .setPubAction(ep.getString("share_copy"))
@@ -63,8 +63,8 @@ public class BiliBiliQuery {
      * @param uid Up id
      * @return
      */
-    public static BilibiliDynamic getLatestDynamic(String uid) throws IOException {
-        List<BilibiliDynamic> dynamics = getDynamics(uid);
+    public static BiliBiliDynamic getLatestDynamic(String uid) throws IOException {
+        List<BiliBiliDynamic> dynamics = getDynamics(uid);
         if (CollUtil.isEmpty(dynamics)) {
             return null;
         }
@@ -78,14 +78,14 @@ public class BiliBiliQuery {
      * @param uid Up id
      * @return
      */
-    public static List<BilibiliDynamic> getDynamics(String uid) throws IOException {
-        List<BilibiliDynamic> dynamics = new ArrayList<>();
+    public static List<BiliBiliDynamic> getDynamics(String uid) throws IOException {
+        List<BiliBiliDynamic> dynamics = new ArrayList<>();
         URL url = new URL(SPACE_API.replace("$UID", uid));
         MapGetter mapGetter = IOUtil.sendAndGetResponseMapGetter(url, "GET", null, null);
         for (MapGetter getter : mapGetter.getMapGetter("data").getMapGetterList("items")) {
             try {
                 MapGetter author = getter.getMapGetter("modules").getMapGetter("module_author");
-                BilibiliDynamic dynamic = new BilibiliDynamic();
+                BiliBiliDynamic dynamic = new BiliBiliDynamic();
                 dynamics.add(dynamic
                         .setAuthName(author.getString("name"))
                         .setFace(author.getString("face"))

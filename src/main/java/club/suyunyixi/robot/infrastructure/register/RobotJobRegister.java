@@ -2,6 +2,7 @@ package club.suyunyixi.robot.infrastructure.register;
 
 import club.suyunyixi.robot.infrastructure.utils.ApplicationUtil;
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.collection.ListUtil;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
@@ -30,8 +31,10 @@ public class RobotJobRegister implements ApplicationRunner {
 
     @Scheduled(cron = "0 0/3 * * * ? ")
     public void runTask() {
+        // 临时存储
+        List<Runnable> tasks = ListUtil.toList(TASKS);
         // 任务启动
-        for (Runnable task : TASKS) {
+        for (Runnable task : tasks) {
             task.run();
         }
     }
@@ -56,7 +59,7 @@ public class RobotJobRegister implements ApplicationRunner {
     }
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
         // 初始化任务
         addCronTask(applicationUtil.tasks());
         log.info("注册task, num: {}", TASKS.size());

@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.application.query;
 
-import club.suyunyixi.robot.domain.entity.constants.ReqUrlConstant;
+import club.suyunyixi.robot.infrastructure.entity.constants.ReqUrlConstant;
 import club.suyunyixi.robot.infrastructure.utils.IOUtil;
 import club.suyunyixi.robot.infrastructure.utils.MapGetter;
 import cn.hutool.core.text.CharSequenceUtil;

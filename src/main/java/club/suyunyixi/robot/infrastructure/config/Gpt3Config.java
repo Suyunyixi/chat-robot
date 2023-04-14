@@ -1,6 +1,6 @@
 package club.suyunyixi.robot.infrastructure.config;
 
-import club.suyunyixi.robot.domain.entity.properties.KeyProperties;
+import club.suyunyixi.robot.infrastructure.config.properties.KeyProperties;
 import cn.hutool.core.codec.Base64;
 import com.unfbx.chatgpt.OpenAiClient;
 import jakarta.annotation.Resource;
