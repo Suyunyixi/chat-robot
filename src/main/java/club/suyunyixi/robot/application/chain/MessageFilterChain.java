@@ -11,6 +11,9 @@ import club.suyunyixi.robot.infrastructure.utils.ExceptionUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import static club.suyunyixi.robot.infrastructure.entity.constants.ChinaConstant.LEVEL_1;
+import static club.suyunyixi.robot.infrastructure.entity.constants.ChinaConstant.LEVEL_2;
+
 /**
  * 消息过滤链, 主链
  *

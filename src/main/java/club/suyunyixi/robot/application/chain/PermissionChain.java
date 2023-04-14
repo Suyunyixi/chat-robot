@@ -9,6 +9,8 @@ import club.suyunyixi.robot.infrastructure.anno.ChainService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import static club.suyunyixi.robot.infrastructure.entity.constants.ChinaConstant.*;
+
 /**
  * 权限判断链
  *

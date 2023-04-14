@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import jakarta.annotation.Resource;
 
+import static club.suyunyixi.robot.infrastructure.entity.constants.ChinaConstant.LEVEL_1;
+
 /**
  * 消息分析链
  *
